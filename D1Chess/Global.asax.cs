@@ -17,7 +17,9 @@ namespace D1Chess
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ViewEngines.Engines.OfType<RazorViewEngine>().First().ViewLocationFormats = (new string[] { "~/{0}.cshtml" }).ToArray();
         }
     }
 }
