@@ -1,0 +1,19 @@
+﻿<FieldSet ng-switch="Email.Switch"ng-style="Email.FieldSet.NgStyle">
+    <legend ng-style="Email.Legend_Text.NgStyle">{{Email.Legend}}</legend>
+    <label ng-style="Email.Current_LabelText.NgStyle">{{Email.Current_Label}}</label>
+    <label ng-style="Email.Current_Text.NgStyle"> {{Email.Current}}</label>
+    <div ng-switch-when="Entry" >
+        <label ng-style="Email.Entry_Label.NgStyle">New</label>
+        <input ng-style="Email.Entry_Input.NgStyle" ng-model="Email.Entry" ng-disabled="Email.Disabled"  type="text" ng-change="VM_Email.ChangeFunc()" />
+    </div>
+    <div ng-switch-when="Confirm">
+        <label ng-style="Email.Code_Label.NgStyle">Code</label>
+        <input ng-style="Email.Code_Input.NgStyle" ng-model="Email.Code" ng-disabled="Email.Disabled" type="text" ng-change="VM_Email.ChangeFunc()" />
+    </div>
+</FieldSet>
+
+<button type="button" ng-click="VM_Email.ClickExitFunc()" ng-style="Email.Exit.NgStyle" ng-disabled="Email.Disabled">Exit</button>
+<button type="button" ng-show="Email.Reenter_Show" ng-click="VM_Email.ClickReenterFunc()" ng-style="Email.Reenter.NgStyle" ng-disabled="Email.Disabled">Reenter</button>
+<button type="button" ng-show="Email.Resend_Show" ng-click="VM_Email.ClickResendFunc()" ng-style="Email.Resend.NgStyle" ng-disabled="Email.Disabled">Resend</button>
+<button type="button" ng-show="Email.Confirm_Show" ng-click="VM_Email.ClickConfirmFunc()" ng-style="Email.Confirm.NgStyle" ng-disabled="Email.Disabled||Email.Confirm_Disabled">Confirm</button>
+<button type="button" ng-show="Email.Save_Show" ng-click="VM_Email.ClickSaveFunc()" ng-style="Email.Save.NgStyle" ng-disabled="Email.Disabled||Email.Save_Disabled">Save</button>

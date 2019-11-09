@@ -1,0 +1,18 @@
+﻿<FieldSet ng-style="Profile.FieldSet.NgStyle">
+    <legend ng-style="Profile.Legend.NgStyle">{{Profile.Legend.Text}}</legend>
+    <img ng-style="Profile.Img.NgStyle" ng-click="VM_Profile.ClickImgFunc()" ng-src={{Profile.Img.NgSrc}} />
+    <!--<label ng-show="Profile.UserId_Show" ng-style="Game.UserId_Label.NgStyle">User ID:</label>-->
+    <!--<label ng-show="Profile.UserId_Show" ng-style="Game.UserId_Text.NgStyle">{{Profile.UserId}}</label>-->
+    <label ng-show="Profile.Name_Show" ng-style="Profile.Name_Label.NgStyle">Name:</label>
+    <label ng-show="Profile.Name_Show" ng-style="Profile.Name_Text.NgStyle">{{Profile.UserId}}</label>
+    <label ng-show="Profile.Rating_Show" ng-style="Profile.Rating_Label.NgStyle">Rating:</label>
+    <label ng-show="Profile.Rating_Show" ng-style="Profile.Rating_Text.NgStyle">{{Profile.Rating}}</label>
+    <label ng-show="Profile.Group_Show" ng-style="Profile.Group_Label.NgStyle">Group:</label>
+    <label ng-show="Profile.Group_Show" ng-style="Profile.Group_Text.NgStyle">{{Profile.Group}}</label>
+</FieldSet>
+<button type="button" ng-click="VM_Profile.ClickExitFunc()" ng-style="Profile.Exit.NgStyle" ng-disabled="Profile.Exit_Disabled">Exit</button>
+<button type="button" ng-show="Profile.Back_Show" ng-click="VM_Profile.ClickBackFunc()" ng-style="Profiles.Back.NgStyle" ng-disabled="Profile.Disabled">Back</button>
+<button type="button" ng-show="Profile.Board_Show" ng-click="VM_Profile.ClickBoardFunc()" ng-style="Profile.Board.NgStyle" ng-disabled="Profiles.Disabled||Profile.Board.Disabled">Board</button>
+<button type="button" ng-show="Profile.Challenge_Show" ng-click="VM_Profile.ClickChallengeFunc()" ng-style="Profile.Challenge.NgStyle" ng-disabled="Profiles.Disabled||Profile.Challenge_Disabled">Challenge</button>
+<button type="button" ng-show="Profile.Game_Show" ng-click="VM_Profile.ClickGameFunc()" ng-style="Profile.Game.NgStyle" ng-disabled="Profiles.Disabled||Profile.Game.Disabled">Game</button>
+<button type="button" ng-show="Profile.Select_Show" ng-click="VM_Profile.ClickSelectFunc()" ng-style="Profile.Select.NgStyle" ng-disabled="Profiles.Disabled||Profile.Select.Disabled">Select</button>

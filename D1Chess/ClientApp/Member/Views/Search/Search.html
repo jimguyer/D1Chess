@@ -1,0 +1,34 @@
+﻿<FieldSet ng-style="Search.ByFieldSet.NgStyle">
+    <legend ng-style="Search.ByLegend_Text.NgStyle">{{Search.ByLegend}}</legend>
+
+    <label ng-style="Search.UserId_Label.NgStyle">User ID</label>
+    <input type="radio" value="U" ng-style="Search.UserId_Radio.NgStyle" data-ng-model="Search.By" ng-disabled="Search.Disabled" ng-change="VM_Search.ChangeFunc()">
+
+    <label ng-style="Search.FirstName_Label.NgStyle">First Name</label>
+    <input type="radio" value="F" ng-style="Search.FirstName_Radio.NgStyle" data-ng-model="Search.By" ng-disabled="Search.Disabled" ng-change="VM_Search.ChangeFunc()">
+
+    <label ng-style="Search.LastName_Label.NgStyle">Last Name</label>
+    <input type="radio" value="L" ng-style="Search.LastName_Radio.NgStyle" data-ng-model="Search.By" ng-disabled="Search.Disabled" ng-change="VM_Search.ChangeFunc()">
+
+    <label ng-style="Search.Group_Label.NgStyle">Group</label>
+    <input type="radio" value="G" ng-style="Search.Group_Radio.NgStyle" data-ng-model="Search.By" ng-disabled="Search.Disabled" ng-change="VM_Search.ChangeFunc()">
+</FieldSet>
+<FieldSet ng-style="Search.TextFieldSet.NgStyle">
+    <label ng-style="Search.Text_Label.NgStyle">Search Text</label>
+    <input type="text" ng-style="Search.Text_Input.NgStyle" data-ng-model="Search.Text" ng-disabled="Search.Disabled" ng-change="VM_Search.ChangeFunc()">
+</FieldSet>
+<FieldSet ng-style="Search.RatingFieldSet.NgStyle">
+    <legend ng-style="Search.RatingLegend_Text.NgStyle">{{Search.RatingLegend}}</legend>
+
+    <label ng-style="Search.Min_Label.NgStyle">Min</label>
+    <input type="text" ng-style="Search.Min_Input.NgStyle" data-ng-model="Search.Min" ng-disabled="Search.Disabled" ng-change="VM_Search.ChangeFunc()">
+
+    <label ng-style="Search.Max_Label.NgStyle">Max</label>
+    <input type="text" ng-style="Search.Max_Input.NgStyle" data-ng-model="Search.Max" ng-disabled="Search.Disabled" ng-change="VM_Search.ChangeFunc()">
+</FieldSet>
+
+<button type="button" ng-click="VM_Search.ClickExitFunc()" ng-style="Search.Exit.NgStyle" ng-disabled="Search.Disabled" >Exit</button>
+<button type="button" ng-click="VM_Search.ClickBackFunc()" ng-style="Search.Back.NgStyle" ng-disabled="Search.Disabled" ng-show="Search.Back_Show" >Back</button>
+<button type="button" ng-click="VM_Search.ClickSearchFunc()" ng-style="Search.Search.NgStyle" ng-disabled="Search.Disabled|| Search.Search_Disabled" >Search</button>
+
+

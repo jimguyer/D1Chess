@@ -1,0 +1,40 @@
+﻿<FieldSet ng-style="VM.FieldSet.Style" ng-switch="VM.Switch">
+    <legend ng-style="VM.Legend.Style">Registration</legend>
+
+    <label ng-style="VM.Email_Label.Style">Email</label>
+    <input ng-style="VM.Email.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('Email')" ng-model="DM.Email" type="text">
+
+    <label ng-style="VM.UserId_Label.Style">User ID</label>
+    <input ng-style="VM.UserId.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('UserId')" ng-model="DM.UserId" type="text">
+
+    <label ng-style="VM.Password_Label.Style">Password</label>
+    <input ng-switch-when="Password" ng-style="VM.Password.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('Password')" ng-model="DM.Password" type="password" />
+    <input ng-switch-when="Text" ng-style="VM.Password.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('Password')" ng-model="DM.Password" type="text" />
+
+
+    <label ng-style="VM.FirstName_Label.Style">First Name</label>
+    <input ng-style="VM.FirstName.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('FirstName')" ng-model="DM.FirstName" type="text">
+
+    <label ng-style="VM.CodeImg_Label.Style">Code</label>
+    <img ng-style="VM.CodeImg.Style" ng-src={{VM.CodeImg.Src}}  ng-click="VC.OnClick('CodeImg')" alt="" />
+
+    <label ng-style="VM.Code_Label.Style">Enter Code</label>
+    <input ng-style="VM.Code.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('FirstName')" ng-model="DM.Code" type="text">
+
+</FieldSet>
+<button ng-style="VM.Exit.Style" ng-disabled="VM.Disabled" ng-click="VC.OnClick('Exit')" type="button">Exit</button>
+<button ng-style="VM.Toggle.Style" ng-disabled="VM.Disabled" ng-click="VC.OnClick('Toggle')" type="button">{{DM.Toggle}} </button>
+<button ng-style="VM.Register.Style" ng-disabled="VM.Disabled" ng-click="VC.OnClick('Register')" type="button">Register</button>
+
+<!--<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />
+<label>Registration</label><br />-->

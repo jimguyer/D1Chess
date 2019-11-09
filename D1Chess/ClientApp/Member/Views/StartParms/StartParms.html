@@ -1,0 +1,39 @@
+﻿<div ng-switch="StartParms.Switch">
+    <FieldSet ng-switch-when="Find" ng-style="StartParms.ByFieldSet.NgStyle">
+        <legend ng-style="StartParms.ByLegend_Text.NgStyle">{{StartParms.ByLegend}}</legend>
+
+        <label ng-style="StartParms.Facebook_Label.NgStyle">Facebook Friendlist</label>
+        <input type="radio" value="F" ng-style="StartParms.Facebook_Radio.NgStyle" data-ng-model="StartParms.OpFindBy" ng-disabled="StartParms.Facebook_Disabled" ng-change="VM_StartParms.ChangeFunc()">
+
+        <label ng-style="StartParms.Email_Label.NgStyle">Send Email</label>
+        <input type="radio" value="E" ng-style="StartParms.Email_Radio.NgStyle" data-ng-model="StartParms.OpFindBy" ng-disabled="StartParms.Disabled" ng-change="VM_StartParms.ChangeFunc()">
+
+        <label ng-style="StartParms.Search_Label.NgStyle">Member Search</label>
+        <input type="radio" value="S" ng-style="StartParms.Search_Radio.NgStyle" data-ng-model="StartParms.OpFindBy" ng-disabled="StartParms.Disabled" ng-change="VM_StartParms.ChangeFunc()">
+    </FieldSet>
+    <img ng-switch-when="Img" ng-style="StartParms.OpponentImg.NgStyle" ng-src={{StartParms.OpponentImg.NgSrc}}  ng-click="VM_StartParms.ClickImgFunc()" />
+    <!--<div>
+        <label ng-style="StartParms.OpponentLegend_Text.NgStyle">{{StartParms.OpponentLegend}}</label>
+        <img ng-style="StartParms.OpponentImg.NgStyle" ng-click="VM_StartParms.ClickImgFunc()" ng-src={{StartParms.OpponentImg.NgSrc}} />
+    </div>-->
+</div>
+<FieldSet ng-style="StartParms.Rated_FieldSet.NgStyle">
+    <legend ng-style="StartParms.RatedLegend_Text.NgStyle">{{StartParms.RatedLegend}}</legend>
+    <label ng-style="StartParms.Rated_Label.NgStyle">Rated</label>
+    <input type="checkbox" ng-style="StartParms.Rated_CheckBox.NgStyle" data-ng-model="StartParms.Rated" ng-disabled="StartParms.Disabled" ng-change="VM_StartParms.ChangeFunc()">
+</FieldSet>
+<FieldSet ng-style="StartParms.Time_FieldSet.NgStyle">
+    <legend ng-style="StartParms.TimeLegend_Text.NgStyle">{{StartParms.TimeLegend}}</legend>
+    <label ng-style="StartParms.TimeInc_Label.NgStyle" ng-disabled="StartParms.Disabled">Increment</label>
+    <select ng-style="StartParms.TimeInc_Select.NgStyle" ng-model="StartParms.TimeInc" ng-init="StartParms.TimeInc" 
+            ng-options="x for x in StartParms.TimeIncs" ng-disabled="StartParms.Disabled" ng-change="VM_StartParms.ChangeFunc()"></select>
+
+    <label ng-style="StartParms.TimeAmt_Label.NgStyle" ng-disabled="StartParms.Disabled">Amount</label>
+    <select ng-style="StartParms.TimeAmt_Select.NgStyle" ng-model="StartParms.TimeAmt" ng-init="StartParms.TimeAmt" 
+            ng-options="x for x in StartParms.TimeAmts" ng-disabled="StartParms.Disabled" ng-change="VM_StartParms.ChangeFunc()"></select>
+</FieldSet>
+
+<button type="button" ng-click="VM_StartParms.ClickExitFunc()" ng-style="StartParms.Exit.NgStyle">Exit</button>
+<button type="button" ng-show="StartParms.Back_Show" ng-click="VM_StartParms.ClickBackFunc()" ng-style="StartParms.Back.NgStyle">Back</button>
+<button type="button" ng-click="VM_StartParms.ClickNextFunc()" ng-style="StartParms.Next.NgStyle" ng-disabled="StartParms.Next_Disabled">Next</button>
+

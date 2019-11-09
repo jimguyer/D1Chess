@@ -1,0 +1,21 @@
+﻿<FieldSet ng-style="Options.FieldSet.NgStyle">
+    <legend ng-style="Options.Legend_Text.NgStyle">{{Options.Legend}}</legend>
+
+    <label ng-style="Options.EmailAlerts_Label.NgStyle">Email Alerts</label>
+    <input type="checkbox" ng-style="Options.EmailAlerts_CheckBox.NgStyle" data-ng-model="Options.EmailAlerts" ng-disabled="Options_Disabled" ng-change="VM_Options.ChangeFunc()">
+
+    <label ng-style="Options.PhoneAlerts_Label.NgStyle">Phone Alerts</label>
+    <input type="checkbox" ng-style="Options.PhoneAlerts_CheckBox.NgStyle" data-ng-model="Options.PhoneAlerts" ng-disabled="Options_Disabled" ng-change="VM_Options.ChangeFunc()">
+
+    <label ng-style="Options.AudioOn_Label.NgStyle">Audio On</label>
+    <input type="checkbox" ng-style="Options.AudioOn_CheckBox.NgStyle" data-ng-model="Options.AudioOn" ng-disabled="Options_Disabled" ng-change="VM_Options.ChangeFunc()">
+
+    <label ng-style="Options.ShowClock_Label.NgStyle">Show Clock</label>
+    <input type="checkbox" ng-style="Options.ShowClock_CheckBox.NgStyle" data-ng-model="Options.ShowClock" ng-disabled="Options_Disabled" ng-change="VM_Options.ChangeFunc()">
+
+    <label ng-style="Options.PostToFacebook_Label.NgStyle">Post To FaceBook</label>
+    <input type="checkbox" ng-style="Options.PostToFacebook_CheckBox.NgStyle" data-ng-model="Options.PostToFacebook" ng-disabled="Options_Disabled" ng-change="VM_Options.ChangeFunc()">
+</FieldSet>
+<button type="button" ng-click="VM_Options.ClickExitFunc()" ng-style="Options.Exit.NgStyle" ng-disabled="Options_Disabled">Exit</button>
+<button type="button" ng-click="VM_Options.ClickSaveFunc()" ng-style="Options.Save.NgStyle" ng-disabled="Options.Disabled||Options.Save_Disabled">Save</button>
+

@@ -1,0 +1,19 @@
+﻿<FieldSet ng-style="StartEmail.EmailFieldSet.NgStyle">
+    <legend ng-style="StartEmail.EmailLegend_Text.NgStyle">{{StartEmail.EmailLegend}}</legend>
+
+    <label ng-style="StartEmail.Email_Label.NgStyle">Email</label>
+    <input type="text" ng-style="StartEmail.Email_Input.NgStyle" ng-model="StartEmail.Email" ng-change="VM_StartEmail.ChangeFunc()" ng-disabled="StartEmail.Disabled" />
+</FieldSet>
+<FieldSet ng-style="StartEmail.NameFieldSet.NgStyle">
+    <legend ng-style="StartEmail.NameLegend_Text.NgStyle">{{StartEmail.NameLegend}}</legend>
+
+    <label ng-style="StartEmail.FirstName_Label.NgStyle">First Name</label>
+    <input ng-style="StartEmail.FirstName_Input.NgStyle" ng-model="StartEmail.FirstName" type="text" ng-change="VM_StartEmail.ChangeFunc()" ng-disabled="StartEmail.Disabled" />
+
+    <label ng-style="StartEmail.LastName_Label.NgStyle">Last Name</label>
+    <input ng-style="StartEmail.LastName_Input.NgStyle" ng-model="StartEmail.LastName" type="text" ng-change="VM_StartEmail.ChangeFunc()" ng-disabled="StartEmail.Disabled" />
+</FieldSet>
+
+<button type="button" ng-click="VM_StartEmail.ClickExitFunc()" ng-style="StartEmail.Exit.NgStyle">Exit</button>
+<button type="button" ng-click="VM_StartEmail.ClickBackFunc()" ng-style="StartEmail.Back.NgStyle">Back</button>
+<button type="button" ng-click="VM_StartEmail.ClickNextFunc()" ng-style="StartEmail.Next.NgStyle" ng-disabled="StartEmail.Disabled || StartEmail.Next_Disabled">Next</button>

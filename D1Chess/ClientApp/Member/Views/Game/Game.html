@@ -1,0 +1,38 @@
+﻿<div ng-switch="Game.Switch">
+    <img ng-switch-when="Photo" ng-style="Game.Img.NgStyle" ng-click="VM_Game.ClickImgFunc()" ng-src={{Game.Img.NgSrc}} />
+    <FieldSet ng-switch-when="Opponent" ng-style="Game.OpponentFieldSet.NgStyle">
+        <legend ng-style="Game.OpponentLegend_Text.NgStyle">{{Game.OpponentLegend}}</legend>
+
+        <label ng-show="Game.OpEmail_Show" ng-style="Game.OpEmail_Label.NgStyle">Email:</label>
+        <label ng-show="Game.OpEmail_Show" ng-style="Game.OpEmail_Text.NgStyle">{{Game.OpEmail}}</label>
+
+        <label ng-show="Game.OpUserId_Show" ng-style="Game.OpUserId_Label.NgStyle">User ID:</label>
+        <label ng-show="Game.OpUserId_Show" ng-style="Game.OpUserId_Text.NgStyle">{{Game.OpUserId}}</label>
+
+        <label ng-show="Game.OpName_Show" ng-style="Game.OpName_Label.NgStyle">User ID:</label>
+        <label ng-show="Game.OpName_Show" ng-style="Game.OpName_Text.NgStyle">{{Game.OpName}}</label>
+
+        <label ng-show="Game.OpRating_Show" ng-style="Game.OpRating_Label.NgStyle">Rating:</label>
+        <label ng-show="Game.OpRating_Show" ng-style="Game.OpRating_Text.NgStyle">{{Game.OpRating}}</label>
+    </FieldSet>
+</div>
+<FieldSet ng-style="Game.StatsFieldSet.NgStyle">
+    <legend ng-style="Game.StatsLegend_Text.NgStyle">{{Game.StatsLegend}}</legend>
+    <label ng-show="Game.GameName_Show" ng-style="Game.GameName_Label.NgStyle">Name:</label>
+    <label ng-show="Game.GameName_Show" ng-style="Game.GameName_Text.NgStyle">{{Game.GameName}}</label>
+
+    <label ng-style="Game.Rated_Label.NgStyle">Rated:</label>
+    <label ng-style="Game.Rated_Text.NgStyle">{{Game.Rated}}</label>
+
+    <label ng-style="Game.Time_Label.NgStyle">Move Time:</label>
+    <label ng-style="Game.Time_Text.NgStyle">{{Game.Time}}</label>
+</FieldSet>
+<button type="button" ng-show="Game.Accept_Show" ng-click="VM_Game.ClickAcceptFunc()" ng-style="Game.Accept.NgStyle" ng-disabled="Game.Disabled">Accept</button>
+<button type="button" ng-show="Game.Back_Show" ng-click="VM_Game.ClickBackFunc()" ng-style="Game.Back.NgStyle" ng-disabled="Game.Disabled">Back</button>
+<button type="button" ng-show="Game.Board_Show" ng-click="VM_Game.ClickBoardFunc()" ng-style="Game.Board.NgStyle" ng-disabled="Game.Disabled || Game.Board_Disabled">Board</button>
+<button type="button" ng-show="Game.Decline_Show" ng-click="VM_Game.ClickDeclineFunc()" ng-style="Game.Decline.NgStyle" ng-disabled="Game.Disabled">Decline</button>
+<button type="button" ng-show="Game.Exit_Show" ng-click="VM_Game.ClickExitFunc()" ng-style="Game.Exit.NgStyle" ng-disabled="Game.Disabled">Exit</button>
+<button type="button" ng-show="Game.Next_Show" ng-click="VM_Game.ClickNextFunc()" ng-style="Game.Next.NgStyle" ng-disabled="Game.Disabled ||Game.Next_Disabled">Next</button>
+<button type="button" ng-show="Game.Resend_Show" ng-click="VM_Game.ClickResendFunc()" ng-style="Game.Resend.NgStyle" ng-disabled="Game.Disabled ||Game.Resend_Disabled">Resend</button>
+<button type="button" ng-show="Game.Retract_Show" ng-click="VM_Game.ClickRetractFunc()" ng-style="Game.Retract.NgStyle" ng-disabled="Game.Disabled ||Game.Retract_Disabled">Retract</button>
+<button type="button" ng-show="Game.Send_Show" ng-click="VM_Game.ClickSendFunc()" ng-style="Game.Send.NgStyle" ng-disabled="Game.Disabled || Game.Send_Disabled">Send</button>

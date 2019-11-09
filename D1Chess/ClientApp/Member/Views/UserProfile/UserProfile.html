@@ -1,0 +1,35 @@
+﻿<FieldSet ng-switch="UserProfile.Switch" ng-style="UserProfile.FieldSet.NgStyle">
+    <legend ng-style="UserProfile.Legend_Text.NgStyle">{{UserProfile.Legend}}</legend>
+    <img ng-src={{UserProfile.Img.NgSrc}} ng-click="VM_UserProfile.ClickImgFunc()" ng-style="UserProfile.Img.NgStyle" />
+    <div ng-switch-when="Output">
+        <label ng-style="UserProfile.UserName_Label.NgStyle">User Name:</label>
+        <label ng-style="UserProfile.UserName_Text.NgStyle">{{UserProfile.UserName}}</label>
+        <label ng-style="UserProfile.Group_LabelO.NgStyle">Group:</label>
+        <label ng-style="UserProfile.Group_Text.NgStyle">{{UserProfile.Group}}</label>
+        <label ng-style="UserProfile.Rating_Label.NgStyle">Rating:</label>
+        <label ng-style="UserProfile.Rating_Text.NgStyle">{{UserProfile.Rating}}</label>
+        <label ng-style="UserProfile.Challenges_Label.NgStyle">Open Challenges:</label>
+        <label ng-style="UserProfile.Challenges_Text.NgStyle">{{UserProfile.Challenges}}</label>
+        <label ng-style="UserProfile.GamesWinsLosses_Label.NgStyle">Current Games/Wins/Losses:</label>
+        <label ng-style="UserProfile.GamesWinsLosses_Text.NgStyle">{{UserProfile.GamesWinsLosses}}</label>
+    </div>
+    <div ng-switch-when="Input">
+        <label ng-disabled="UserProfile.Disabled" ng-style="UserProfile.UserId_Label.NgStyle">User ID</label>
+        <input ng-disabled="UserProfile.Disabled" ng-style="UserProfile.UserId_Input.NgStyle" data-ng-model="UserProfile.UserId" ng-change="VM_UserProfile.ChangeFunc('UserId')">
+        <label ng-disabled="UserProfile.Disabled" ng-style="UserProfile.FirstName_Label.NgStyle">First Name</label>
+        <input ng-disabled="UserProfile.Disabled" ng-style="UserProfile.FirstName_Input.NgStyle" data-ng-model="UserProfile.FirstName" ng-change="VM_UserProfile.ChangeFunc('FirstName')">
+        <label ng-disabled="UserProfile.Disabled" ng-style="UserProfile.LastName_Label.NgStyle">Last Name</label>
+        <input ng-disabled="UserProfile.Disabled" ng-style="UserProfile.LastName_Input.NgStyle" data-ng-model="UserProfile.LastName" ng-change="VM_UserProfile.ChangeFunc('LastName')">
+        <label ng-disabled="UserProfile.Disabled" ng-style="UserProfile.Group_LabelI.NgStyle">Group</label>
+        <input ng-disabled="UserProfile.Disabled" ng-style="UserProfile.Group_Input.NgStyle" data-ng-model="UserProfile.Group" ng-change="VM_UserProfile.ChangeFunc('Group')">
+    </div>
+</FieldSet>
+<button type="button" ng-click="VM_UserProfile.ClickExitFunc()" ng-style="UserProfile.Exit.NgStyle">Exit</button>
+
+<button type="button" ng-show="UserProfile.Back_Show" ng-disabled="UserProfile.Disabled" ng-click="VM_UserProfile.ClickBackFunc()" ng-style="UserProfile.Back.NgStyle">Back</button>
+<button type="button" ng-show="UserProfile.Cancel_Show" ng-disabled="UserProfile.Disabled" ng-click="VM_UserProfile.ClickCancelFunc()" ng-style="UserProfile.Cancel.NgStyle">Cancel</button>
+<button type="button" ng-show="UserProfile.Default_Show" ng-disabled="UserProfile.Disabled" ng-click="VM_UserProfile.ClickDefaultFunc()" ng-style="UserProfile.Default.NgStyle">Default</button>
+<button type="button" ng-show="UserProfile.Photo_Show" ng-disabled="UserProfile.Disabled" ng-click="VM_UserProfile.ClickPhotoFunc()" ng-style="UserProfile.Photo.NgStyle">Photo</button>
+
+<button type="button" ng-show="UserProfile.Edit_Show" ng-disabled="UserProfile.Disabled" ng-click="VM_UserProfile.ClickEditFunc()" ng-style="UserProfile.Edit.NgStyle">Edit</button>
+<button type="button" ng-show="UserProfile.Save_Show" ng-disabled="UserProfile.Disabled||UserProfile.Save_Disabled" ng-click="VM_UserProfile.ClickSaveFunc()" ng-style="UserProfile.Save.NgStyle">Save</button>

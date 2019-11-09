@@ -1,0 +1,17 @@
+﻿<FieldSet ng-style="VM.FieldSet.Style" ng-switch="VM.Switch">
+    <label ng-style="VM.EmailUserId_Label.Style">Email/ID</label>
+    <input ng-style="VM.EmailUserId.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('EmailUserId')" ng-model="DM.EmailUserId" type="text" />
+    <label ng-style="VM.Password_Label.Style">Password</label>
+    <input ng-switch-when="Password" ng-style="VM.Password.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('Password')" ng-model="DM.Password" type="password" />
+    <input ng-switch-when="Text" ng-style="VM.Password.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('Password')" ng-model="DM.Password" type="text" />
+</FieldSet>
+<div>
+    <button ng-style="VM.Toggle.Style" ng-disabled="VM.Disabled" ng-click="VC.OnClick('Toggle')" type="button">{{DM.Toggle}} </button>
+    <button ng-style="VM.Recover.Style" ng-disabled="VM.Disabled" ng-click="VC.OnClick('Recover')" type="button">Recover</button>
+    <button ng-style="VM.Register.Style" ng-disabled="VM.Disabled" ng-click="VC.OnClick('Register')"type="button">Register</button>
+    <button ng-style="VM.Practice.Style" ng-disabled="VM.Disabled" ng-click="VC.OnClick('Practice')"type="button">Practice</button>
+    <button ng-style="VM.LogIn.Style" ng-disabled="VM.Disabled|| VM.LogIn_Disabled" ng-click="VC.OnClick('LogIn')"type="button">Log In</button>
+    <img ng-style="VM.Facebook.Style" ng-src="{{LogOn.FBLogIn.NgSrc}}" ng-click="VC.OnClick('Facebook')">
+    <button ng-style="VM.Privacy.Style"  ng-disabled="VM.Disabled" ng-click="VC.OnClick('Privacy')" type="button">Privacy</button>
+</div>
+<!--<button type="button" ng-click="VM_LogOn.ClickFBGetLogInStatus()" ng-style="LogOn.FBGetLogInStatus.NgStyle">Get LogIn Status</button>-->

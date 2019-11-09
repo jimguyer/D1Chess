@@ -1,0 +1,112 @@
+﻿@{ Layout = null; }
+@model D1Chess.Model
+<!DOCTYPE html>
+
+<html ng-app="NgModule" resize>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Diamond Chess</title>
+    <script>
+        //console.log("Root Index");
+        var GM = { URL: JSON.parse('@Html.Raw(Json.Encode(Model))').URL, Parms: JSON.parse('@Html.Raw(Json.Encode(Model))').Parms };
+        GM.Index = {
+            Role: JSON.parse('@Html.Raw(Json.Encode(Model))').Role,
+            URL: JSON.parse('@Html.Raw(Json.Encode(Model))').URL,
+            Parms: JSON.parse('@Html.Raw(Json.Encode(Model))').Parms
+        };
+        GM.WebParms = JSON.parse('@Html.Raw(Json.Encode(Model))').WebParms;
+        var VM = { Class: {}, Tabs: {}, Show: {}, Msgs: [] };
+        var DM = { Data: {}, Size: {}, Page: [], Pages: [[]] };
+
+        //console.log("GM.WebParms=" + JSON.stringify(GM.WebParms));
+
+    </script>
+    <script src="~/Scripts/angular.min.1.4.0.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/jquery-1.6.4.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+
+    <!---------------------------------------------------------------->
+
+    <script src="ClientApp/App/AppModule.js"></script>
+
+    <script src="ClientApp/App/Root/Root.js"></script>
+    <script src="ClientApp/App/Root/Comps/Hdr/Hdr.js"></script>
+    <script src="ClientApp/App/Root/Comps/Ftr/Ftr.js"></script>
+
+    <script src="~/Client/_App/Mods/ServiceMods.js"></script>
+    <script src="~/Client/_App/Modules/Attr.js"></script>
+    <script src="~/Client/_App/Modules/DMC.js"></script>
+    <script src="~/Client/_App/Modules/FaceBook.js"></script>
+    <script src="~/Client/_App/Modules/Global.js"></script>
+    <script src="~/Client/_App/Modules/Hub.js"></script>
+    <script src="~/Client/_App/Modules/Repository.js"></script>
+    <script src="~/Client/_App/Modules/Size.js"></script>
+    <script src="~/Client/_App/Modules/Style.js"></script>
+    <script src="~/Client/_App/Modules/Styles.js"></script>
+    <script src="~/Client/_App/Modules/Util.js"></script>
+    <script src="~/Client/_App/Modules/Web.js"></script>
+
+    <script src="~/Client/_App/Views/Arrows/Arrows.js"></script>
+    <script src="~/Client/_App/Views/Board/Board.js"></script>
+    <script src="~/Client/_App/Views/Phone/Phone.js"></script>
+    <script src="~/Client/_App/Views/Photo/Photo.js"></script>
+    <script src="~/Client/_App/Views/Tabs/Tabs.js"></script>
+
+    @switch (Model.Role)
+    {
+        default:
+        case "Anonymous":
+            <script>
+                //console.log("Index.cshtml * Anonymous");
+            </script>
+            <script>GM.Role = "Anonymous"; GM.Anonymous = true;</script>
+            <script src="ClientApp/App/AppModule_Ano.js"></script>
+
+            <script src="ClientApp/Anonymous/Modules/Role.js"></script>
+            <script src="ClientApp/Anonymous/Routes/LogOn/LogOn.js"></script>
+            <script src="ClientApp/Anonymous/Routes/Practice/Practice.js"></script>
+            <script src="ClientApp/Anonymous/Routes/Privacy/Privacy.js"></script>
+            <script src="ClientApp/Anonymous/Routes/Recover/Recover.js"></script>
+            <script src="ClientApp/Anonymous/Routes/Register/Register.js"></script>
+            <script src="ClientApp/Anonymous/Routes/Registration/Registration.js"></script>
+            break;
+
+        case "Member":
+            <script>
+                //console.log("Index.cshtml * Member");
+            </script>
+            <script>GM.Role = "Member"; GM.Anonymous = false;</script>
+            <script src="ClientApp/App/AppModule_Mem.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Modules/Paypal.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Modules/Role.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Routes/Games/Games.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Routes/History/History.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Routes/Home/Home.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Routes/Players/Players.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Routes/Start/Start.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Routes/User/User.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Routes/UserProfiles/UserProfiles.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/Email/Email.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/Game/Game.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/Membership/Membership.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/Message/Message.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/Options/Options.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/Password/Password.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/Profile/Profile.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/Profiles/Profiles.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/Search/Search.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/StartEmail/StartEmail.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/StartParms/StartParms.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/URLAction/URLAction.js"></script>
+            <script src="ClientApp/Member/ClientApp/Member/Views/UserProfile/UserProfile.js"></script>
+            break;
+    }
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+</head>
+<body>
+    @using (Html.BeginForm("Index", "View"))
+    {<approot></approot>}
+</body>
+</html>

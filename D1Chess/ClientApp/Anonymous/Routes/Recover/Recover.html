@@ -1,0 +1,18 @@
+﻿<FieldSet ng-style="VM.ContactMethod_FieldSet.Style" >
+    <legend ng-style="VM.ContactMethod_Legend.Style">Contact Method</legend>
+    <label ng-style="VM.Phone_Label.Style">Phone</label>
+    <input ng-style="VM.Phone.Style" ng-disabled="VM.Disabled" ng-change="VC.OnChange('Phone')" ng-model="DM.Phone"  type="checkbox">
+    <label ng-style="VM.Email_Label.Style">Email</label>
+    <input ng-style="VM.Email.Style" ng-disabled="VM.Disabled"  ng-change="VC.OnChange('Email')" ng-model="DM.Email" type="checkbox">
+</FieldSet>
+
+<FieldSet ng-style="VM.ContactInfo_FieldSet.Style">
+    <legend ng-style="VM.ContactInfo_Legend.Style">Contact Information</legend>
+    <label ng-style="VM.EmailUserId_Label.Style">Enter an Email or UserID:</label>
+</FieldSet>
+<input ng-style="VM.EmailUserId.Style" ng-disabled="VM.Disabled" ng-change="VC.ChangeFunc()"  ng-model="DM.EmailUserId"  type="text"/>
+<button ng-style="VM.Exit.Style" ng-click="VC.OnClick('Exit')" ng-disabled="VM.Disabled" type="button">Exit</button>
+<button ng-style="VM.Send.Style" ng-click="VC.OnClick('Send')" ng-disabled="VM.Disabled || VM.Send_Disabled" type="button">Send</button>
+
+
+

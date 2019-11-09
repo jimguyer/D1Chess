@@ -1,0 +1,63 @@
+﻿<div ng-switch="Games.Switch">
+    <label ng-switch-when="BigMsg" ng-style="Games.BigMsg_Label.NgStyle">{{Msg}}</label>
+    <table ng-switch-when="Active" ng-style="Games.Table.NgStyle" cellspacing="0" cellpadding="0">
+        <tr>
+            <th><input type="checkbox" ng-style="Games.CheckBox.NgStyle" ng-click="VM_Games.ClickCheckAllFunc()" ng-model="Games.CheckAll" /></th>
+            <th />
+            <th>Opponent</th>
+            <th>My Turn</th>
+            <th>Time</th>
+        </tr>
+        <tr ng-repeat="xRow in Games.Page">
+            <td><input type="checkbox" ng-style="Games.CheckBox.NgStyle" ng-click="VM_Games.ClickSelectFunc($index)" ng-model="xRow.Selected" name="UserId" value="{{$index}}"></td>
+            <td ng-style="Games.TDI.NgStyle" style="background-image:url({{xRow.OpPhoto_Src}})" ng-click="VM_Games.ClickImgFunc($index)">&nbsp</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.OpUserId}}</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.MeTurn_O}}</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.Time_O}}</td>
+        </tr>
+    </table>
+    <table ng-switch-when="Challenges" ng-style="Games.Table.NgStyle" cellspacing="0" cellpadding="0">
+        <tr>
+            <th><input type="checkbox" ng-style="Games.CheckBox.NgStyle" ng-click="VM_Games.ClickCheckAllFunc()" ng-model="Games.CheckAll" /></th>
+            <th />
+            <th>Opponent</th>
+            <th>Date</th>
+            <th>Rt</th>
+            <th>Time</th>
+        </tr>
+        <tr ng-repeat="xRow in Games.Page">
+            <td><input type="checkbox" ng-style="Games.CheckBox.NgStyle" ng-click="VM_Games.ClickSelectFunc($index)" ng-model="xRow.Selected" name="UserId" value="{{$index}}"></td>
+            <td ng-style="Games.TDI.NgStyle" style="background-image:url({{xRow.OpPhoto_Src}})" ng-click="VM_Games.ClickImgFunc($index)">&nbsp</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.OpUserId}}</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.Date}}</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.Rated_O}}</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.Time_O}}</td>
+        </tr>
+    </table>
+    <table ng-switch-when="History" ng-style="Games.Table.NgStyle">
+        <tr>
+            <th />
+            <th />
+            <th>Opponent</th>
+            <th>Won</th>
+            <th>Date</th>
+        </tr>
+        <tr ng-repeat="xRow in Games.Page">
+            <td><input type="radio" ng-style="Games.Radio.NgStyle" ng-click="VM_Games.ClickSelectFunc($index)" ng-model="xRow.Selected" value="{{$index}}"></td>
+            <td ng-style="Games.TDI.NgStyle" style="background-image:url({{xRow.OpPhoto_Src}})" ng-click="VM_Games.ClickImgFunc($index)">&nbsp</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.OpUserId}}</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.IWon_O}}</td>
+            <td ng-style="Games.TD.NgStyle" ng-click="VM_Games.ClickRowFunc($index)">{{xRow.Date}}</td>
+        </tr>
+    </table>
+</div>
+<arrowsdir></arrowsdir>
+<button type="button" ng-click="VM_Games.ClickExitFunc()" ng-style="Games.Exit.NgStyle" ng-disabled="Profiles.Exit_Disabled">Exit</button>
+
+<button ng-show="Games.Board_Show" type="button" ng-click="VM_Games.ClickBoardFunc()" ng-style="Games.Board.NgStyle" ng-disabled="Games.Board_Disabled">Board</button>
+<button ng-show="Games.Decline_Show" type="button" ng-click="VM_Games.ClickDeclineFunc()" ng-style="Games.Decline.NgStyle" ng-disabled="Games.Decline_Disabled">Decline</button>
+<button ng-show="Games.Retract_Show" type="button" ng-click="VM_Games.ClickRetractFunc()" ng-style="Games.Retract.NgStyle" ng-disabled="Games.Retract_Disabled">Retract</button>
+
+<button ng-show="Games.Start_Show" type="button" ng-click="VM_Games.Click_StartFunc()" ng-style="Games.Start.NgStyle" ng-disabled="Games.Disabled">Start</button>
+<button ng-show="Games.Accept_Show" type="button" ng-click="VM_Games.ClickAcceptFunc()" ng-style="Games.Accept.NgStyle" ng-disabled="Games.Disabled_Accept">Accept</button>
+<button ng-show="Games.Profile_Show" type="button" ng-click="VM_Games.ClickProfileFunc()" ng-style="Games.Profile.NgStyle" ng-disabled="Games.Disabled">Profile</button>

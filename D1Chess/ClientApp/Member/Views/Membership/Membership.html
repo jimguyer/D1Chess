@@ -1,0 +1,64 @@
+﻿<FieldSet ng-style="Membership.FieldSet.NgStyle">
+    <legend ng-style="Membership.Legend_Text.NgStyle">{{Membership.Legend}}</legend>
+    <table ng-style="Membership.Table.NgStyle" cellspacing="0" cellpadding="0">
+        <tr>
+                <th />
+                <th>Level</th>
+                <th>Price</th>
+                <th>Profiles</th>
+                <th>Games</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" ng-style="Membership.Radio.NgStyle" ng-disabled="true" value="Free"
+                       ng-change="VM_Membership.ChangeFunc()" ng-model="Membership.NewLevel">
+            </td>
+            <td ng-style="Membership.TD.NgStyle">Free</td>
+            <td ng-style="Membership.TD.NgStyle">Free</td>
+            <td ng-style="Membership.TD.NgStyle">1</td>
+            <td ng-style="Membership.TD.NgStyle">3</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" ng-style="Membership.Radio.NgStyle" ng-disabled="Membership.Disabled" value="Bronze"
+                       ng-change="VM_Membership.ChangeFunc()" ng-model="Membership.NewLevel">
+            </td>
+            <td ng-style="Membership.TD.NgStyle">Bronze</td>
+            <td ng-style="Membership.TD.NgStyle">$15/year</td>
+            <td ng-style="Membership.TD.NgStyle">2</td>
+            <td ng-style="Membership.TD.NgStyle">9</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" ng-style="Membership.Radio.NgStyle" ng-disabled="Membership.Disabled" value="Silver"
+                       ng-change="VM_Membership.ChangeFunc()" ng-model="Membership.NewLevel">
+            </td>
+            <td ng-style="Membership.TD.NgStyle">Silver</td>
+            <td ng-style="Membership.TD.NgStyle">$25/year</td>
+            <td ng-style="Membership.TD.NgStyle">3</td>
+            <td ng-style="Membership.TD.NgStyle">27</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" ng-style="Membership.Radio.NgStyle" ng-disabled="Membership.Disabled" value="Gold" 
+                       ng-change="VM_Membership.ChangeFunc()" ng-model="Membership.NewLevel">
+            </td>
+            <td ng-style="Membership.TD.NgStyle">Gold</td>
+            <td ng-style="Membership.TD.NgStyle">$30/year</td>
+            <td ng-style="Membership.TD.NgStyle">4</td>
+            <td ng-style="Membership.TD.NgStyle">81</td>
+        </tr>
+    </table>
+</FieldSet>
+<label ng-show="Membership.CurLevel_Show" ng-style="Membership.CurLevel_Label.NgStyle">Level:</label>
+<label ng-show="Membership.CurLevel_Show" ng-style="Membership.CurLevel_Text.NgStyle">{{Membership.CurLevel}}</label>
+<label ng-show="Membership.CurExp_Show" ng-style="Membership.CurExp_Label.NgStyle">Exp:</label>
+<label ng-show="Membership.CurExp_Show" ng-style="Membership.CurExp_Text.NgStyle">{{Membership.CurExp}}</label>
+<label ng-show="Membership.NewLevel_Show" ng-style="Membership.NewLevel_Label.NgStyle">New:</label>
+<label ng-show="Membership.NewLevel_Show" ng-style="Membership.NewLevel_Text.NgStyle">{{Membership.NewLevel}}</label>
+<label ng-show="Membership.NewExp_Show" ng-style="Membership.NewExp_Label.NgStyle">New:</label>
+<label ng-show="Membership.NewExp_Show" ng-style="Membership.NewExp_Text.NgStyle">{{Membership.NewExp}}</label>
+
+<img ng-click="VM_Membership.ClickFBLogInFunc()" ng-src="{{Membership.Paypal.NgSrc}}" ng-style="Membership.Paypal.NgStyle">
+<button type="button" ng-click="VM_Membership.ClickExitFunc()" ng-style="Membership.Exit.NgStyle" ng-disabled="Membership.Disabled">Exit</button>
+<button type="button" ng-click="VM_Membership.ClickSaveFunc()" ng-style="Membership.Save.NgStyle" ng-disabled="Membership.Disabled||Membership.Save_Disabled">Save</button>

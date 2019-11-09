@@ -1,0 +1,27 @@
+﻿<div ng-switch="Message.Switch">
+    <FieldSet ng-switch-when="Opponent" ng-style="Message.Opponent_FieldSet.NgStyle">
+        <legend ng-style="Message.OpponentLegend_Text.NgStyle">{{Message.OpponentLegend}}</legend>
+
+        <label ng-show="Message.OpEmail_Show" ng-style="Message.OpEmail_Label.NgStyle">Email:</label>
+        <label ng-show="Message.OpEmail_Show" ng-style="Message.OpEmail_Text.NgStyle" ng-bind="Message.OpEmail" ng-disabled="Message.Disabled" />
+
+        <label ng-show="Message.OpUserId_Show" ng-style="Message.OpUserId_Label.NgStyle">User ID:</label>
+        <label ng-show="Message.OpUserId_Show" ng-style="Message.OpUserId_Text.NgStyle" ng-bind="Message.OpUserId" ng-disabled="Message.Disabled" />
+
+        <label ng-show="Message.OpName_Show" ng-style="Message.OpName_Label.NgStyle">User ID:</label>
+        <label ng-show="Message.OpName_Show" ng-style="Message.OpName_Text.NgStyle" ng-bind="Message.OpName" ng-disabled="Message.Disabled" />
+
+        <label ng-show="Message.OpRating_Show" ng-style="Message.OpRating_Label.NgStyle">Rating:</label>
+        <label ng-show="Message.OpRating_Show" ng-style="Message.OpRating_Text.NgStyle" ng-bind="Message.OpRating" ng-disabled="Message.Disabled" />
+    </FieldSet>
+    <img ng-switch-when="Photo" ng-style="Message.Img.NgStyle" ng-click="VM_Message.ClickOpponentImgFunc()" ng-src={{Message.Img.NgSrc}} />
+</div>
+
+<FieldSet ng-style="Message.BodyFieldSet.NgStyle">
+    <legend ng-style="Message.BodyLegend_Text.NgStyle">{{Message.BodyLegend}}</legend>
+    <textarea ng-style="Message.Body_TextArea.NgStyle" data-ng-model="Message.Body"></textarea>
+</FieldSet>
+
+<button type="button" ng-click="VM_Message.ClickExitFunc()" ng-style="Message.Exit.NgStyle">Exit</button>
+<button type="button" ng-click="VM_Message.ClickBackFunc()" ng-style="Message.Back.NgStyle">Back</button>
+<button type="button" ng-click="VM_Message.ClickNextFunc()" ng-style="Message.Next.NgStyle" ng-disabled="Message.Next_Disabled">Next</button>

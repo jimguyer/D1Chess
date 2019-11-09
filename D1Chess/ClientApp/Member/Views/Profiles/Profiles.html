@@ -1,0 +1,39 @@
+﻿<div ng-switch="Profiles.Switch">
+    <label ng-switch-when="BigMsg" ng-style="Profiles.BigMsg_Label.NgStyle">{{Profiles.BigMsg}}</label>
+    <table ng-switch-when="Search" ng-style="Profiles.Table.NgStyle" cellspacing="0" cellpadding="0">
+        <tr>
+            <th />
+            <th />
+            <th>ID</th>
+            <th>Rating</th>
+        </tr>
+        <tr ng-repeat="xRow in Profiles.Page">
+            <td><input type="radio" ng-style="Profiles.Radio.NgStyle" ng-click="VM_Profiles.ClickSelectFunc($index)" data-ng-model="Profiles.Page.Selection" value="{{$index}}"></td>
+            <td ng-style="Profiles.TDI.NgStyle" style="background-image:url({{xRow.OpPhoto_Src}})" ng-click="VM_Profiles.ClickImgFunc($index)">&nbsp</td>
+            <td ng-style="Profiles.TD.NgStyle" ng-click="VM_Profiles.ClickRowFunc($index)">{{xRow.OpUserId_}}</td>
+            <td ng-style="Profiles.TD.NgStyle" ng-click="VM_Profiles.ClickRowFunc($index)">{{xRow.OpRating}}</td>
+        </tr>
+    </table>
+    <table ng-switch-when="History" ng-style="Profiles.Table.NgStyle" cellspacing="0" cellpadding="0">
+        <tr>
+            <th />
+            <th />
+            <th>User ID</th>
+            <th>Rating</th>
+        </tr>
+        <tr ng-repeat="xRow in Profiles.Page">
+            <td><input type="radio" ng-style="Profiles.Radio.NgStyle" ng-click="VM_Profiles.ClickSelectFunc($index)" data-ng-model="Profiles.Page.Selection" value="{{$index}}"></td>
+            <td ng-style="Profiles.TDI.NgStyle" style="background-image:url({{xRow.OpPhoto_Src}})" ng-click="VM_Profiles.ClickImgFunc($index)">&nbsp</td>
+            <td ng-style="Profiles.TD.NgStyle" ng-click="VM_Profiles.ClickRowFunc($index)">{{xRow.OpUserId}}</td>
+            <td ng-style="Profiles.TD.NgStyle" ng-click="VM_Profiles.ClickRowFunc($index)">{{xRow.OpRating}}</td>
+        </tr>
+    </table>
+</div>
+<arrowsdir></arrowsdir>
+<button type="button" ng-click="VM_Profiles.ClickExitFunc()" ng-style="Profiles.Exit.NgStyle" ng-disabled="Profiles.Exit_Disabled">Exit</button>
+<button type="button" ng-click="VM_Profiles.ClickChallengeFunc()" ng-style="Profiles.Challenge.NgStyle" ng-disabled="Profiles.Disabled||Profiles.Challenge_Disabled">Challenge</button>
+
+<button type="button" ng-show="Profiles.Back_Show" ng-click="VM_Profiles.ClickBackFunc()" ng-style="Profiles.Back.NgStyle" ng-disabled="Profiles.Disabled">Back</button>
+<button type="button" ng-show="Profiles.Next_Show" ng-click="VM_Profiles.ClickNextFunc()" ng-style="Profiles.Next.NgStyle" ng-disabled="Profiles.Disabled||Profiles.Next_Disabled">Next</button>
+<button type="button" ng-show="Profiles.View_Show" ng-click="VM_Profiles.ClickViewFunc()" ng-style="Profiles.View.NgStyle" ng-disabled="Profiles.Disabled||Profiles.View_Disabled">View</button>
+

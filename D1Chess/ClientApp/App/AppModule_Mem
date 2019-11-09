@@ -1,0 +1,30 @@
+angular.module("NgModule", ["ngRoute", "RootMod", "RouteMods", "ViewMods"]);
+
+angular.module('RouteMods', [
+    'GamesMod',
+    'HistoryMod',
+    'HomeMod',
+    'UserProfilesMod',
+    'PlayersMod',
+    'StartMod',
+    'UserMod',
+    'UserProfilesMod'
+]);
+
+angular.module('ViewMods', [
+    'EmailMod',
+    'GameMod',
+    'MembershipMod',
+    'MessageMod',
+    'OptionsMod',
+    'PasswordMod',
+    'PlayersMod',
+    'ProfileMod',
+    'ProfilesMod',
+    'SearchMod',
+    'StartEmailMod',
+    'StartParmsMod',
+    'URLActionMod',
+    'UserMod',
+    'UserProfileMod'
+]);

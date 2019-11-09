@@ -1,0 +1,12 @@
+angular.module("NgModule", ["ngRoute", "RootMod", "RouteMods", "ViewMods"]);
+
+angular.module('RouteMods', [
+    'LogOnMod',
+    'PracticeMod',
+    'PrivacyMod',
+    'RecoverMod',
+    'RegisterMod'
+]);
+angular.module('ViewMods', [
+    'RegistrationMod'
+]);

@@ -1,0 +1,9 @@
+﻿<div ng-view></div>
+<!--<master></master>-->
+
+<img ng-style="VM.Background.Style" ng-src={{VM.Background.Src}} />
+<div ng-style="VM.Div.Style" />
+<label ng-style="VM.Label.Style">Diamond Chess</label>
+<img ng-style="VM.Img_L.Style" ng-src="{{VM.Img_L.Src}}" ng-click="VC.OnClick('LeftDiamond')" alt="" />
+<img ng-style="VM.Img_R.Style" ng-src="{{VM.Img_R.Src}}" ng-click="VC.OnClick('RightDiamond')" alt="" />
+<label ng-style="VM.Msg.Style">{{GM.Msg}}</label>
