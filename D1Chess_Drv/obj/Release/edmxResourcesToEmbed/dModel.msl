@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dModelStoreContainer" CdmEntityContainer="AzureConnection">
+    <EntitySetMapping Name="aApps">
+      <EntityTypeMapping TypeName="dModel.aApp">
+        <MappingFragment StoreEntitySet="aApps">
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LoweredName" ColumnName="LoweredName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aCategories">
+      <EntityTypeMapping TypeName="dModel.aCategory">
+        <MappingFragment StoreEntitySet="aCategories">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aCodes">
+      <EntityTypeMapping TypeName="dModel.aCode">
+        <MappingFragment StoreEntitySet="aCodes">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kDeviceId" ColumnName="kDeviceId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aDevices">
+      <EntityTypeMapping TypeName="dModel.aDevice">
+        <MappingFragment StoreEntitySet="aDevices">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="EmailUserId" ColumnName="EmailUserId" />
+          <ScalarProperty Name="LastDateTime" ColumnName="LastDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aFriends">
+      <EntityTypeMapping TypeName="dModel.aFriend">
+        <MappingFragment StoreEntitySet="aFriends">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kUserId" ColumnName="kUserId" />
+          <ScalarProperty Name="kProfileIdx" ColumnName="kProfileIdx" />
+          <ScalarProperty Name="kFriendUserId" ColumnName="kFriendUserId" />
+          <ScalarProperty Name="kFriendProfileIdx" ColumnName="kFriendProfileIdx" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aPhoneCarriers">
+      <EntityTypeMapping TypeName="dModel.aPhoneCarrier">
+        <MappingFragment StoreEntitySet="aPhoneCarriers">
+          <ScalarProperty Name="kName" ColumnName="kName" />
+          <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Format" ColumnName="Format" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aProducts">
+      <EntityTypeMapping TypeName="dModel.aProduct">
+        <MappingFragment StoreEntitySet="aProducts">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="fCategoryId" ColumnName="fCategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aProperties">
+      <EntityTypeMapping TypeName="dModel.aProperty">
+        <MappingFragment StoreEntitySet="aProperties">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DefaultValueKey" ColumnName="DefaultValueKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aPropertyDatas">
+      <EntityTypeMapping TypeName="dModel.aPropertyData">
+        <MappingFragment StoreEntitySet="aPropertyData">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kUserId" ColumnName="kUserId" />
+          <ScalarProperty Name="kProfileIdx" ColumnName="kProfileIdx" />
+          <ScalarProperty Name="kName" ColumnName="kName" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aPropertyValues">
+      <EntityTypeMapping TypeName="dModel.aPropertyValue">
+        <MappingFragment StoreEntitySet="aPropertyValues">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kPropertyId" ColumnName="kPropertyId" />
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aTokens">
+      <EntityTypeMapping TypeName="dModel.aToken">
+        <MappingFragment StoreEntitySet="aTokens">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="fDeviceId" ColumnName="fDeviceId" />
+          <ScalarProperty Name="fUserId" ColumnName="fUserId" />
+          <ScalarProperty Name="IsLoggedIn" ColumnName="IsLoggedIn" />
+          <ScalarProperty Name="MsgId" ColumnName="MsgId" />
+          <ScalarProperty Name="URLAction" ColumnName="URLAction" />
+          <ScalarProperty Name="URLLocation" ColumnName="URLLocation" />
+          <ScalarProperty Name="URLPaypal" ColumnName="URLPaypal" />
+          <ScalarProperty Name="URLGameId" ColumnName="URLGameId" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aURLParms">
+      <EntityTypeMapping TypeName="dModel.aURLParm">
+        <MappingFragment StoreEntitySet="aURLParms">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="fUserId" ColumnName="fUserId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Paypal" ColumnName="Paypal" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aUsers">
+      <EntityTypeMapping TypeName="dModel.aUser">
+        <MappingFragment StoreEntitySet="aUsers">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordToLower" ColumnName="PasswordToLower" />
+          <ScalarProperty Name="ProfileLastIdx" ColumnName="ProfileLastIdx" />
+          <ScalarProperty Name="ProfileDefaultIdx" ColumnName="ProfileDefaultIdx" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="EmailAddressToLower" ColumnName="EmailAddressToLower" />
+          <ScalarProperty Name="EmailConfirmCode" ColumnName="EmailConfirmCode" />
+          <ScalarProperty Name="PhoneCarrier" ColumnName="PhoneCarrier" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneConfirmCode" ColumnName="PhoneConfirmCode" />
+          <ScalarProperty Name="Opts_EmailAlerts" ColumnName="Opts_EmailAlerts" />
+          <ScalarProperty Name="Opts_PhoneAlerts" ColumnName="Opts_PhoneAlerts" />
+          <ScalarProperty Name="Opts_AudioOn" ColumnName="Opts_AudioOn" />
+          <ScalarProperty Name="Opts_ClockShow" ColumnName="Opts_ClockShow" />
+          <ScalarProperty Name="Opts_PostToFacebook" ColumnName="Opts_PostToFacebook" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="MembershipLevel" ColumnName="MembershipLevel" />
+          <ScalarProperty Name="MembershipExpiration" ColumnName="MembershipExpiration" />
+          <ScalarProperty Name="RegisterDateTime" ColumnName="RegisterDateTime" />
+          <ScalarProperty Name="LastActivityDateTime" ColumnName="LastActivityDateTime" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dGames">
+      <EntityTypeMapping TypeName="dModel.dGame">
+        <MappingFragment StoreEntitySet="dGames">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kId" ColumnName="kId" />
+          <ScalarProperty Name="RelatedId" ColumnName="RelatedId" />
+          <ScalarProperty Name="PiecePos" ColumnName="PiecePos" />
+          <ScalarProperty Name="Script" ColumnName="Script" />
+          <ScalarProperty Name="Rated" ColumnName="Rated" />
+          <ScalarProperty Name="TimeInc" ColumnName="TimeInc" />
+          <ScalarProperty Name="TimeAmt" ColumnName="TimeAmt" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="LastActionDate" ColumnName="LastActionDate" />
+          <ScalarProperty Name="Sts" ColumnName="Sts" />
+          <ScalarProperty Name="EndSts" ColumnName="EndSts" />
+          <ScalarProperty Name="Over" ColumnName="Over" />
+          <ScalarProperty Name="OverDate" ColumnName="OverDate" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dProfiles">
+      <EntityTypeMapping TypeName="dModel.dProfile">
+        <MappingFragment StoreEntitySet="dProfiles">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kUserId" ColumnName="kUserId" />
+          <ScalarProperty Name="kIdx" ColumnName="kIdx" />
+          <ScalarProperty Name="UserIdName" ColumnName="UserIdName" />
+          <ScalarProperty Name="UserIdToLower" ColumnName="UserIdToLower" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="PhotoBytes" ColumnName="PhotoBytes" />
+          <ScalarProperty Name="IsPhotoApproved" ColumnName="IsPhotoApproved" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="GroupToLower" ColumnName="GroupToLower" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="StartParms_OpFindBy" ColumnName="StartParms_OpFindBy" />
+          <ScalarProperty Name="StartParms_TimeInc" ColumnName="StartParms_TimeInc" />
+          <ScalarProperty Name="StartParms_TimeAmt" ColumnName="StartParms_TimeAmt" />
+          <ScalarProperty Name="StartParms_Rated" ColumnName="StartParms_Rated" />
+          <ScalarProperty Name="StartEmail_Email" ColumnName="StartEmail_Email" />
+          <ScalarProperty Name="StartEmail_FirstName" ColumnName="StartEmail_FirstName" />
+          <ScalarProperty Name="StartEmail_LastName" ColumnName="StartEmail_LastName" />
+          <ScalarProperty Name="Search_By" ColumnName="Search_By" />
+          <ScalarProperty Name="Search_Text" ColumnName="Search_Text" />
+          <ScalarProperty Name="Search_RatingMin" ColumnName="Search_RatingMin" />
+          <ScalarProperty Name="Search_RatingMax" ColumnName="Search_RatingMax" />
+          <ScalarProperty Name="Games" ColumnName="Games" />
+          <ScalarProperty Name="Wins" ColumnName="Wins" />
+          <ScalarProperty Name="Losses" ColumnName="Losses" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dUserGames">
+      <EntityTypeMapping TypeName="dModel.dUserGame">
+        <MappingFragment StoreEntitySet="dUserGames">
+          <ScalarProperty Name="kAppId" ColumnName="kAppId" />
+          <ScalarProperty Name="kUserId" ColumnName="kUserId" />
+          <ScalarProperty Name="kProfileIdx" ColumnName="kProfileIdx" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="fURLParmId" ColumnName="fURLParmId" />
+          <ScalarProperty Name="RematchSent" ColumnName="RematchSent" />
+          <ScalarProperty Name="Sts" ColumnName="Sts" />
+          <ScalarProperty Name="GameName" ColumnName="GameName" />
+          <ScalarProperty Name="MyTurn" ColumnName="MyTurn" />
+          <ScalarProperty Name="PlayingAsWhite" ColumnName="PlayingAsWhite" />
+          <ScalarProperty Name="IWon" ColumnName="IWon" />
+          <ScalarProperty Name="RatingBefore" ColumnName="RatingBefore" />
+          <ScalarProperty Name="RatingAfter" ColumnName="RatingAfter" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

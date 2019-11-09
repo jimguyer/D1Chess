@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EfModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'DMChess.dbo.Carriers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Carriers">
+          <Property Name="Name" Type="nchar" MaxLength="64" />
+          <Property Name="SMS" Type="nchar" MaxLength="32" />
+          <Property Name="MMS" Type="nchar" MaxLength="32" />
+        </EntityType>-->
+  <EntityType Name="Friends">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="ProfileIdx" />
+      <PropertyRef Name="FriendUserId" />
+      <PropertyRef Name="FriendProfileIdx" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProfileIdx" Type="int" Nullable="false" />
+    <Property Name="FriendUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FriendProfileIdx" Type="int" Nullable="false" />
+    <Property Name="Sequence" Type="int" />
+  </EntityType>
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RelatedId" Type="uniqueidentifier" />
+    <Property Name="PiecePos" Type="varchar" MaxLength="128" />
+    <Property Name="Script" Type="varchar(max)" />
+    <Property Name="Rated" Type="bit" />
+    <Property Name="TimeInc" Type="varchar" MaxLength="16" />
+    <Property Name="TimeAmt" Type="int" />
+    <Property Name="StartDT" Type="datetime" />
+    <Property Name="LastActionDT" Type="datetime" />
+    <Property Name="Sts" Type="nvarchar" MaxLength="50" />
+    <Property Name="EndSts" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsOver" Type="bit" />
+    <Property Name="OverDT" Type="datetime" />
+    <Property Name="CreateUserId" Type="uniqueidentifier" />
+    <Property Name="CreateDT" Type="datetime" />
+    <Property Name="ChangeUserId" Type="uniqueidentifier" />
+    <Property Name="ChangeDT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Profiles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="Idx" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Idx" Type="int" Nullable="false" />
+    <Property Name="UserIDText" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="UserIDTextToLower" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="PhotoBytes" Type="image" />
+    <Property Name="IsPhotoApproved" Type="bit" />
+    <Property Name="NameFirst" Type="varchar" MaxLength="256" />
+    <Property Name="NameLast" Type="varchar" MaxLength="256" />
+    <Property Name="Group" Type="varchar" MaxLength="32" />
+    <Property Name="GroupToLower" Type="varchar" MaxLength="32" />
+    <Property Name="Rating" Type="int" Nullable="false" />
+    <Property Name="StartParms_OpFindBy" Type="nvarchar" MaxLength="10" />
+    <Property Name="StartParms_TimeInc" Type="nvarchar" MaxLength="1" />
+    <Property Name="StartParms_TimeAmt" Type="int" />
+    <Property Name="StartParms_Rated" Type="bit" />
+    <Property Name="StartEmail_Email" Type="varchar" MaxLength="256" />
+    <Property Name="StartEmail_NameFirst" Type="varchar" MaxLength="64" />
+    <Property Name="StartEmail_NameLast" Type="varchar" MaxLength="64" />
+    <Property Name="Search_By" Type="varchar" MaxLength="16" />
+    <Property Name="SearchText_UserId" Type="varchar" MaxLength="32" />
+    <Property Name="SearchText_Group" Type="varchar" MaxLength="32" />
+    <Property Name="SearchText_NameLast" Type="varchar" MaxLength="32" />
+    <Property Name="SearchText_NameFirst" Type="varchar" MaxLength="32" />
+    <Property Name="Search_RatingMin" Type="int" />
+    <Property Name="Search_RatingMax" Type="int" />
+    <Property Name="CreateUserId" Type="uniqueidentifier" />
+    <Property Name="CreateDT" Type="datetime" />
+    <Property Name="ChangeUserId" Type="uniqueidentifier" />
+    <Property Name="ChangeDT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tokens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="IsJustRegistered" Type="bit" Nullable="false" />
+    <Property Name="IsJustLoggedIn" Type="bit" Nullable="false" />
+    <Property Name="IsJustLoggedOut" Type="bit" Nullable="false" />
+    <Property Name="EmailUserId" Type="nvarchar" MaxLength="256" />
+    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="ProfileIdx" Type="int" />
+    <Property Name="DeviceId" Type="uniqueidentifier" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="128" />
+    <Property Name="Code" Type="varchar" MaxLength="16" />
+    <Property Name="Msg" Type="varchar" MaxLength="64" />
+    <Property Name="URLId" Type="uniqueidentifier" />
+    <Property Name="CreateUserId" Type="uniqueidentifier" />
+    <Property Name="CreateDT" Type="datetime" />
+    <Property Name="CreateMod" Type="varchar" MaxLength="32" />
+    <Property Name="ChangeUserId" Type="uniqueidentifier" />
+    <Property Name="ChangeDT" Type="datetime" />
+    <Property Name="ChangeMod" Type="varchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Urls">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="Action" Type="varchar" MaxLength="32" />
+    <Property Name="Route" Type="varchar" MaxLength="32" />
+    <Property Name="View" Type="varchar" MaxLength="32" />
+    <Property Name="Paypal" Type="varchar" MaxLength="256" />
+    <Property Name="GameId" Type="uniqueidentifier" />
+    <Property Name="CreateUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreateDT" Type="datetime" Nullable="false" />
+    <Property Name="ChangeUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChangeDT" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserGames">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="ProfileIdx" />
+      <PropertyRef Name="GameId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProfileIdx" Type="int" Nullable="false" />
+    <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="fURLParmId" Type="uniqueidentifier" />
+    <Property Name="RematchSent" Type="bit" Nullable="false" />
+    <Property Name="Sts" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="GameName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="MyTurn" Type="bit" Nullable="false" />
+    <Property Name="PlayingAsWhite" Type="bit" />
+    <Property Name="IWon" Type="bit" />
+    <Property Name="RatingBefore" Type="int" />
+    <Property Name="RatingAfter" Type="int" />
+    <Property Name="CreateUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangeUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="EmailAddressToLower" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="EmailConfirmCode" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordToLower" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="IsOnline" Type="bit" Nullable="false" />
+    <Property Name="ConnectionId" Type="uniqueidentifier" />
+    <Property Name="ProfileIdxDefault" Type="int" Nullable="false" />
+    <Property Name="MembershipLevel" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="MembershipExpiration" Type="datetime" />
+    <Property Name="Role" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="PhoneCarrier" Type="varchar" MaxLength="16" />
+    <Property Name="PhoneNumber" Type="bigint" />
+    <Property Name="PhoneConfirmCode" Type="varchar" MaxLength="16" />
+    <Property Name="Opts_EmailAlerts" Type="bit" Nullable="false" />
+    <Property Name="Opts_PhoneAlerts" Type="bit" Nullable="false" />
+    <Property Name="Opts_AudioOn" Type="bit" Nullable="false" />
+    <Property Name="Opts_ClockShow" Type="bit" Nullable="false" />
+    <Property Name="Opts_PostToFacebook" Type="bit" />
+    <Property Name="LastActivityDT" Type="datetime" Nullable="false" />
+    <Property Name="CreateDT" Type="datetime" Nullable="false" />
+    <Property Name="CreateUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ChangeDT" Type="datetime" Nullable="false" />
+    <Property Name="ChangeUserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="EfModelStoreContainer">
+    <EntitySet Name="Friends" EntityType="Self.Friends" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tokens" EntityType="Self.Tokens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urls" EntityType="Self.Urls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGames" EntityType="Self.UserGames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

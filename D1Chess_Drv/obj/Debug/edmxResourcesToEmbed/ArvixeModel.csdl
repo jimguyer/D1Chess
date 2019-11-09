@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="aApp">
+    <Key>
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoweredName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="dGames" Relationship="Self.FK__dGames__aApps" FromRole="aApps" ToRole="dGames" />
+  </EntityType>
+  <EntityType Name="aCategory">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateUserId" Type="Guid" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ChangeUserId" Type="Guid" />
+    <Property Name="ChangeDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="aDevice">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="EmailUserId" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastDateTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="aFriend">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kUserId" />
+      <PropertyRef Name="kProfileIdx" />
+      <PropertyRef Name="kFriendUserId" />
+      <PropertyRef Name="kFriendProfileIdx" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kUserId" Type="Guid" Nullable="false" />
+    <Property Name="kProfileIdx" Type="Int32" Nullable="false" />
+    <Property Name="kFriendUserId" Type="Guid" Nullable="false" />
+    <Property Name="kFriendProfileIdx" Type="Int32" Nullable="false" />
+    <Property Name="Sequence" Type="Int32" />
+    <NavigationProperty Name="aUser" Relationship="Self.FK_aFriends_aUsers" FromRole="aFriends" ToRole="aUsers" />
+  </EntityType>
+  <EntityType Name="aHumanCode">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kDeviceId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kDeviceId" Type="Guid" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="aPhoneCarrier">
+    <Key>
+      <PropertyRef Name="kName" />
+    </Key>
+    <Property Name="kName" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prefix" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Suffix" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Format" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="aProduct">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="fCategoryId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateUserId" Type="Guid" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ChangeUserId" Type="Guid" />
+    <Property Name="ChangeDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="aProperty">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DefaultValueKey" Type="Guid" />
+    <NavigationProperty Name="aPropertyValue" Relationship="Self.FK_aProperties_aPropertyValues" FromRole="aProperties" ToRole="aPropertyValues" />
+  </EntityType>
+  <EntityType Name="aPropertyData">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kUserId" />
+      <PropertyRef Name="kProfileIdx" />
+      <PropertyRef Name="kName" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kUserId" Type="Guid" Nullable="false" />
+    <Property Name="kProfileIdx" Type="Int32" Nullable="false" />
+    <Property Name="kName" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aPropertyValue">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kPropertyId" />
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kPropertyId" Type="Guid" Nullable="false" />
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="aProperties" Relationship="Self.FK_aProperties_aPropertyValues" FromRole="aPropertyValues" ToRole="aProperties" />
+  </EntityType>
+  <EntityType Name="aToken">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="fDeviceId" Type="Guid" Nullable="false" />
+    <Property Name="fUserId" Type="Guid" Nullable="false" />
+    <Property Name="IsLoggedIn" Type="Boolean" Nullable="false" />
+    <Property Name="MsgId" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="URLAction" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="URLLocation" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="URLPaypal" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="URLGameId" Type="Guid" />
+    <Property Name="CreateUserId" Type="Guid" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangeUserId" Type="Guid" Nullable="false" />
+    <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="aURLParm">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="fUserId" Type="Guid" Nullable="false" />
+    <Property Name="Action" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Paypal" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="GameId" Type="Guid" />
+    <Property Name="CreateUserId" Type="Guid" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangeUserId" Type="Guid" Nullable="false" />
+    <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="aUser">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="ConnectionId" Type="Guid" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordToLower" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsOnline" Type="Boolean" Nullable="false" />
+    <Property Name="ProfileLastIdx" Type="Int32" Nullable="false" />
+    <Property Name="ProfileDefaultIdx" Type="Int32" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailAddressToLower" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailConfirmCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="EmailAlert" Type="Boolean" Nullable="false" />
+    <Property Name="PhoneCarrier" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int64" />
+    <Property Name="PhoneConfirmCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PhoneAlert" Type="Boolean" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MembershipLevel" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MembershipExpiration" Type="DateTime" Precision="3" />
+    <Property Name="RegisterDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastActivityDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateUserId" Type="Guid" Nullable="false" />
+    <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangeUserId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="aFriends" Relationship="Self.FK_aFriends_aUsers" FromRole="aUsers" ToRole="aFriends" />
+    <NavigationProperty Name="dProfiles" Relationship="Self.FK_dProfiles_aUser" FromRole="aUsers" ToRole="dProfiles" />
+  </EntityType>
+  <EntityType Name="dGame">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kId" Type="Guid" Nullable="false" />
+    <Property Name="PiecePos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Script" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Rated" Type="Boolean" Nullable="false" />
+    <Property Name="Time" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="LastActionDate" Type="DateTime" Precision="3" />
+    <Property Name="FinishDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserId" Type="Guid" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangeUserId" Type="Guid" Nullable="false" />
+    <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="aApp" Relationship="Self.FK__dGames__aApps" FromRole="dGames" ToRole="aApps" />
+  </EntityType>
+  <EntityType Name="dProfile">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kUserId" />
+      <PropertyRef Name="kIdx" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kUserId" Type="Guid" Nullable="false" />
+    <Property Name="kIdx" Type="Int32" Nullable="false" />
+    <Property Name="UserIdName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserIdToLower" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="PhotoBytes" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsPhotoApproved" Type="Boolean" />
+    <Property Name="FirstName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="LastActivityDate" Type="DateTime" Precision="3" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <Property Name="Start_OpGetType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Start_Rated" Type="Boolean" />
+    <Property Name="Start_Time" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Search_By" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Search_Text" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Search_RatingMin" Type="Int32" />
+    <Property Name="Search_RatingMax" Type="Int32" />
+    <Property Name="Games" Type="Int32" />
+    <Property Name="Wins" Type="Int32" />
+    <Property Name="Losses" Type="Int32" />
+    <Property Name="CreateUserId" Type="Guid" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ChangeUserId" Type="Guid" />
+    <Property Name="ChangeDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="aUser" Relationship="Self.FK_dProfiles_aUser" FromRole="dProfiles" ToRole="aUsers" />
+  </EntityType>
+  <EntityType Name="dUserGame">
+    <Key>
+      <PropertyRef Name="kAppId" />
+      <PropertyRef Name="kUserId" />
+      <PropertyRef Name="kProfileIdx" />
+      <PropertyRef Name="GameId" />
+    </Key>
+    <Property Name="kAppId" Type="Guid" Nullable="false" />
+    <Property Name="kUserId" Type="Guid" Nullable="false" />
+    <Property Name="kProfileIdx" Type="Int32" Nullable="false" />
+    <Property Name="GameId" Type="Guid" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GameName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PlayingAsWhite" Type="Boolean" />
+    <Property Name="IWon" Type="Boolean" />
+    <Property Name="RatingBefore" Type="Int32" />
+    <Property Name="RatingAfter" Type="Int32" />
+    <Property Name="CreateUserId" Type="Guid" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangeUserId" Type="Guid" Nullable="false" />
+    <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK__dGames__aApps">
+    <End Role="aApps" Type="Self.aApp" Multiplicity="1" />
+    <End Role="dGames" Type="Self.dGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aApps">
+        <PropertyRef Name="kId" />
+      </Principal>
+      <Dependent Role="dGames">
+        <PropertyRef Name="kAppId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_aFriends_aUsers">
+    <End Role="aUsers" Type="Self.aUser" Multiplicity="1" />
+    <End Role="aFriends" Type="Self.aFriend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aUsers">
+        <PropertyRef Name="kAppId" />
+        <PropertyRef Name="kId" />
+      </Principal>
+      <Dependent Role="aFriends">
+        <PropertyRef Name="kAppId" />
+        <PropertyRef Name="kUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_aProperties_aPropertyValues">
+    <End Role="aPropertyValues" Type="Self.aPropertyValue" Multiplicity="0..1" />
+    <End Role="aProperties" Type="Self.aProperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aPropertyValues">
+        <PropertyRef Name="kAppId" />
+        <PropertyRef Name="kPropertyId" />
+        <PropertyRef Name="kId" />
+      </Principal>
+      <Dependent Role="aProperties">
+        <PropertyRef Name="kAppId" />
+        <PropertyRef Name="kId" />
+        <PropertyRef Name="DefaultValueKey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dProfiles_aUser">
+    <End Role="aUsers" Type="Self.aUser" Multiplicity="1" />
+    <End Role="dProfiles" Type="Self.dProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aUsers">
+        <PropertyRef Name="kAppId" />
+        <PropertyRef Name="kId" />
+      </Principal>
+      <Dependent Role="dProfiles">
+        <PropertyRef Name="kAppId" />
+        <PropertyRef Name="kUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ArvixeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="aApps" EntityType="Self.aApp" />
+    <EntitySet Name="aCategories" EntityType="Self.aCategory" />
+    <EntitySet Name="aDevices" EntityType="Self.aDevice" />
+    <EntitySet Name="aFriends" EntityType="Self.aFriend" />
+    <EntitySet Name="aHumanCodes" EntityType="Self.aHumanCode" />
+    <EntitySet Name="aPhoneCarriers" EntityType="Self.aPhoneCarrier" />
+    <EntitySet Name="aProducts" EntityType="Self.aProduct" />
+    <EntitySet Name="aProperties" EntityType="Self.aProperty" />
+    <EntitySet Name="aPropertyDatas" EntityType="Self.aPropertyData" />
+    <EntitySet Name="aPropertyValues" EntityType="Self.aPropertyValue" />
+    <EntitySet Name="aTokens" EntityType="Self.aToken" />
+    <EntitySet Name="aURLParms" EntityType="Self.aURLParm" />
+    <EntitySet Name="aUsers" EntityType="Self.aUser" />
+    <EntitySet Name="dGames" EntityType="Self.dGame" />
+    <EntitySet Name="dProfiles" EntityType="Self.dProfile" />
+    <EntitySet Name="dUserGames" EntityType="Self.dUserGame" />
+    <AssociationSet Name="FK__dGames__aApps" Association="Self.FK__dGames__aApps">
+      <End Role="aApps" EntitySet="aApps" />
+      <End Role="dGames" EntitySet="dGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_aFriends_aUsers" Association="Self.FK_aFriends_aUsers">
+      <End Role="aUsers" EntitySet="aUsers" />
+      <End Role="aFriends" EntitySet="aFriends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_aProperties_aPropertyValues" Association="Self.FK_aProperties_aPropertyValues">
+      <End Role="aPropertyValues" EntitySet="aPropertyValues" />
+      <End Role="aProperties" EntitySet="aProperties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dProfiles_aUser" Association="Self.FK_dProfiles_aUser">
+      <End Role="aUsers" EntitySet="aUsers" />
+      <End Role="dProfiles" EntitySet="dProfiles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

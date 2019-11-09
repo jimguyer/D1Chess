@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EfModelStoreContainer" CdmEntityContainer="Context">
+    <EntitySetMapping Name="Friends">
+      <EntityTypeMapping TypeName="EfModel.Friend">
+        <MappingFragment StoreEntitySet="Friends">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProfileIdx" ColumnName="ProfileIdx" />
+          <ScalarProperty Name="FriendUserId" ColumnName="FriendUserId" />
+          <ScalarProperty Name="FriendProfileIdx" ColumnName="FriendProfileIdx" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Games">
+      <EntityTypeMapping TypeName="EfModel.Game">
+        <MappingFragment StoreEntitySet="Games">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RelatedId" ColumnName="RelatedId" />
+          <ScalarProperty Name="PiecePos" ColumnName="PiecePos" />
+          <ScalarProperty Name="Script" ColumnName="Script" />
+          <ScalarProperty Name="Rated" ColumnName="Rated" />
+          <ScalarProperty Name="TimeInc" ColumnName="TimeInc" />
+          <ScalarProperty Name="TimeAmt" ColumnName="TimeAmt" />
+          <ScalarProperty Name="StartDT" ColumnName="StartDT" />
+          <ScalarProperty Name="LastActionDT" ColumnName="LastActionDT" />
+          <ScalarProperty Name="Sts" ColumnName="Sts" />
+          <ScalarProperty Name="EndSts" ColumnName="EndSts" />
+          <ScalarProperty Name="IsOver" ColumnName="IsOver" />
+          <ScalarProperty Name="OverDT" ColumnName="OverDT" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="EfModel.Profile">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Idx" ColumnName="Idx" />
+          <ScalarProperty Name="UserIDText" ColumnName="UserIDText" />
+          <ScalarProperty Name="UserIDTextToLower" ColumnName="UserIDTextToLower" />
+          <ScalarProperty Name="PhotoBytes" ColumnName="PhotoBytes" />
+          <ScalarProperty Name="IsPhotoApproved" ColumnName="IsPhotoApproved" />
+          <ScalarProperty Name="NameFirst" ColumnName="NameFirst" />
+          <ScalarProperty Name="NameLast" ColumnName="NameLast" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="GroupToLower" ColumnName="GroupToLower" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="StartParms_OpFindBy" ColumnName="StartParms_OpFindBy" />
+          <ScalarProperty Name="StartParms_TimeInc" ColumnName="StartParms_TimeInc" />
+          <ScalarProperty Name="StartParms_TimeAmt" ColumnName="StartParms_TimeAmt" />
+          <ScalarProperty Name="StartParms_Rated" ColumnName="StartParms_Rated" />
+          <ScalarProperty Name="StartEmail_Email" ColumnName="StartEmail_Email" />
+          <ScalarProperty Name="StartEmail_NameFirst" ColumnName="StartEmail_NameFirst" />
+          <ScalarProperty Name="StartEmail_NameLast" ColumnName="StartEmail_NameLast" />
+          <ScalarProperty Name="Search_By" ColumnName="Search_By" />
+          <ScalarProperty Name="SearchText_UserId" ColumnName="SearchText_UserId" />
+          <ScalarProperty Name="SearchText_Group" ColumnName="SearchText_Group" />
+          <ScalarProperty Name="SearchText_NameLast" ColumnName="SearchText_NameLast" />
+          <ScalarProperty Name="SearchText_NameFirst" ColumnName="SearchText_NameFirst" />
+          <ScalarProperty Name="Search_RatingMin" ColumnName="Search_RatingMin" />
+          <ScalarProperty Name="Search_RatingMax" ColumnName="Search_RatingMax" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="EfModel.Token">
+        <MappingFragment StoreEntitySet="Tokens">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="IsJustRegistered" ColumnName="IsJustRegistered" />
+          <ScalarProperty Name="IsJustLoggedIn" ColumnName="IsJustLoggedIn" />
+          <ScalarProperty Name="IsJustLoggedOut" ColumnName="IsJustLoggedOut" />
+          <ScalarProperty Name="EmailUserId" ColumnName="EmailUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProfileIdx" ColumnName="ProfileIdx" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Msg" ColumnName="Msg" />
+          <ScalarProperty Name="URLId" ColumnName="URLId" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+          <ScalarProperty Name="CreateMod" ColumnName="CreateMod" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+          <ScalarProperty Name="ChangeMod" ColumnName="ChangeMod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urls">
+      <EntityTypeMapping TypeName="EfModel.Url">
+        <MappingFragment StoreEntitySet="Urls">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="View" ColumnName="View" />
+          <ScalarProperty Name="Paypal" ColumnName="Paypal" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGames">
+      <EntityTypeMapping TypeName="EfModel.UserGame">
+        <MappingFragment StoreEntitySet="UserGames">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProfileIdx" ColumnName="ProfileIdx" />
+          <ScalarProperty Name="GameId" ColumnName="GameId" />
+          <ScalarProperty Name="fURLParmId" ColumnName="fURLParmId" />
+          <ScalarProperty Name="RematchSent" ColumnName="RematchSent" />
+          <ScalarProperty Name="Sts" ColumnName="Sts" />
+          <ScalarProperty Name="GameName" ColumnName="GameName" />
+          <ScalarProperty Name="MyTurn" ColumnName="MyTurn" />
+          <ScalarProperty Name="PlayingAsWhite" ColumnName="PlayingAsWhite" />
+          <ScalarProperty Name="IWon" ColumnName="IWon" />
+          <ScalarProperty Name="RatingBefore" ColumnName="RatingBefore" />
+          <ScalarProperty Name="RatingAfter" ColumnName="RatingAfter" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="EfModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="EmailAddressToLower" ColumnName="EmailAddressToLower" />
+          <ScalarProperty Name="EmailConfirmCode" ColumnName="EmailConfirmCode" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordToLower" ColumnName="PasswordToLower" />
+          <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+          <ScalarProperty Name="ProfileIdxDefault" ColumnName="ProfileIdxDefault" />
+          <ScalarProperty Name="MembershipLevel" ColumnName="MembershipLevel" />
+          <ScalarProperty Name="MembershipExpiration" ColumnName="MembershipExpiration" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="PhoneCarrier" ColumnName="PhoneCarrier" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneConfirmCode" ColumnName="PhoneConfirmCode" />
+          <ScalarProperty Name="Opts_EmailAlerts" ColumnName="Opts_EmailAlerts" />
+          <ScalarProperty Name="Opts_PhoneAlerts" ColumnName="Opts_PhoneAlerts" />
+          <ScalarProperty Name="Opts_AudioOn" ColumnName="Opts_AudioOn" />
+          <ScalarProperty Name="Opts_ClockShow" ColumnName="Opts_ClockShow" />
+          <ScalarProperty Name="Opts_PostToFacebook" ColumnName="Opts_PostToFacebook" />
+          <ScalarProperty Name="LastActivityDT" ColumnName="LastActivityDT" />
+          <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+          <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

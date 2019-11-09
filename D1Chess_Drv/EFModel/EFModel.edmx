@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EfModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'DMChess.dbo.Carriers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Carriers">
+          <Property Name="Name" Type="nchar" MaxLength="64" />
+          <Property Name="SMS" Type="nchar" MaxLength="32" />
+          <Property Name="MMS" Type="nchar" MaxLength="32" />
+        </EntityType>-->
+        <EntityType Name="Friends">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ProfileIdx" />
+            <PropertyRef Name="FriendUserId" />
+            <PropertyRef Name="FriendProfileIdx" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProfileIdx" Type="int" Nullable="false" />
+          <Property Name="FriendUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FriendProfileIdx" Type="int" Nullable="false" />
+          <Property Name="Sequence" Type="int" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RelatedId" Type="uniqueidentifier" />
+          <Property Name="PiecePos" Type="varchar" MaxLength="128" />
+          <Property Name="Script" Type="varchar(max)" />
+          <Property Name="Rated" Type="bit" />
+          <Property Name="TimeInc" Type="varchar" MaxLength="16" />
+          <Property Name="TimeAmt" Type="int" />
+          <Property Name="StartDT" Type="datetime" />
+          <Property Name="LastActionDT" Type="datetime" />
+          <Property Name="Sts" Type="nvarchar" MaxLength="50" />
+          <Property Name="EndSts" Type="nvarchar" MaxLength="10" />
+          <Property Name="IsOver" Type="bit" />
+          <Property Name="OverDT" Type="datetime" />
+          <Property Name="CreateUserId" Type="uniqueidentifier" />
+          <Property Name="CreateDT" Type="datetime" />
+          <Property Name="ChangeUserId" Type="uniqueidentifier" />
+          <Property Name="ChangeDT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Idx" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Idx" Type="int" Nullable="false" />
+          <Property Name="UserIDText" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="UserIDTextToLower" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="PhotoBytes" Type="image" />
+          <Property Name="IsPhotoApproved" Type="bit" />
+          <Property Name="NameFirst" Type="varchar" MaxLength="256" />
+          <Property Name="NameLast" Type="varchar" MaxLength="256" />
+          <Property Name="Group" Type="varchar" MaxLength="32" />
+          <Property Name="GroupToLower" Type="varchar" MaxLength="32" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="StartParms_OpFindBy" Type="nvarchar" MaxLength="10" />
+          <Property Name="StartParms_TimeInc" Type="nvarchar" MaxLength="1" />
+          <Property Name="StartParms_TimeAmt" Type="int" />
+          <Property Name="StartParms_Rated" Type="bit" />
+          <Property Name="StartEmail_Email" Type="varchar" MaxLength="256" />
+          <Property Name="StartEmail_NameFirst" Type="varchar" MaxLength="64" />
+          <Property Name="StartEmail_NameLast" Type="varchar" MaxLength="64" />
+          <Property Name="Search_By" Type="varchar" MaxLength="16" />
+          <Property Name="SearchText_UserId" Type="varchar" MaxLength="32" />
+          <Property Name="SearchText_Group" Type="varchar" MaxLength="32" />
+          <Property Name="SearchText_NameLast" Type="varchar" MaxLength="32" />
+          <Property Name="SearchText_NameFirst" Type="varchar" MaxLength="32" />
+          <Property Name="Search_RatingMin" Type="int" />
+          <Property Name="Search_RatingMax" Type="int" />
+          <Property Name="CreateUserId" Type="uniqueidentifier" />
+          <Property Name="CreateDT" Type="datetime" />
+          <Property Name="ChangeUserId" Type="uniqueidentifier" />
+          <Property Name="ChangeDT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tokens">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="IsJustRegistered" Type="bit" Nullable="false" />
+          <Property Name="IsJustLoggedIn" Type="bit" Nullable="false" />
+          <Property Name="IsJustLoggedOut" Type="bit" Nullable="false" />
+          <Property Name="EmailUserId" Type="nvarchar" MaxLength="256" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="ProfileIdx" Type="int" />
+          <Property Name="DeviceId" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="128" />
+          <Property Name="Code" Type="varchar" MaxLength="16" />
+          <Property Name="Msg" Type="varchar" MaxLength="64" />
+          <Property Name="URLId" Type="uniqueidentifier" />
+          <Property Name="CreateUserId" Type="uniqueidentifier" />
+          <Property Name="CreateDT" Type="datetime" />
+          <Property Name="CreateMod" Type="varchar" MaxLength="32" />
+          <Property Name="ChangeUserId" Type="uniqueidentifier" />
+          <Property Name="ChangeDT" Type="datetime" />
+          <Property Name="ChangeMod" Type="varchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="Urls">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="Action" Type="varchar" MaxLength="32" />
+          <Property Name="Route" Type="varchar" MaxLength="32" />
+          <Property Name="View" Type="varchar" MaxLength="32" />
+          <Property Name="Paypal" Type="varchar" MaxLength="256" />
+          <Property Name="GameId" Type="uniqueidentifier" />
+          <Property Name="CreateUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="ChangeUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ChangeDT" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserGames">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ProfileIdx" />
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProfileIdx" Type="int" Nullable="false" />
+          <Property Name="GameId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fURLParmId" Type="uniqueidentifier" />
+          <Property Name="RematchSent" Type="bit" Nullable="false" />
+          <Property Name="Sts" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="GameName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="MyTurn" Type="bit" Nullable="false" />
+          <Property Name="PlayingAsWhite" Type="bit" />
+          <Property Name="IWon" Type="bit" />
+          <Property Name="RatingBefore" Type="int" />
+          <Property Name="RatingAfter" Type="int" />
+          <Property Name="CreateUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ChangeUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="EmailAddressToLower" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="EmailConfirmCode" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordToLower" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IsOnline" Type="bit" Nullable="false" />
+          <Property Name="ConnectionId" Type="uniqueidentifier" />
+          <Property Name="ProfileIdxDefault" Type="int" Nullable="false" />
+          <Property Name="MembershipLevel" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="MembershipExpiration" Type="datetime" />
+          <Property Name="Role" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="PhoneCarrier" Type="varchar" MaxLength="16" />
+          <Property Name="PhoneNumber" Type="bigint" />
+          <Property Name="PhoneConfirmCode" Type="varchar" MaxLength="16" />
+          <Property Name="Opts_EmailAlerts" Type="bit" Nullable="false" />
+          <Property Name="Opts_PhoneAlerts" Type="bit" Nullable="false" />
+          <Property Name="Opts_AudioOn" Type="bit" Nullable="false" />
+          <Property Name="Opts_ClockShow" Type="bit" Nullable="false" />
+          <Property Name="Opts_PostToFacebook" Type="bit" />
+          <Property Name="LastActivityDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateDT" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ChangeDT" Type="datetime" Nullable="false" />
+          <Property Name="ChangeUserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EfModelStoreContainer">
+          <EntitySet Name="Friends" EntityType="Self.Friends" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tokens" EntityType="Self.Tokens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Urls" EntityType="Self.Urls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGames" EntityType="Self.UserGames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EfModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Friend">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ProfileIdx" />
+            <PropertyRef Name="FriendUserId" />
+            <PropertyRef Name="FriendProfileIdx" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="ProfileIdx" Type="Int32" Nullable="false" />
+          <Property Name="FriendUserId" Type="Guid" Nullable="false" />
+          <Property Name="FriendProfileIdx" Type="Int32" Nullable="false" />
+          <Property Name="Sequence" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="RelatedId" Type="Guid" />
+          <Property Name="PiecePos" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Script" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Rated" Type="Boolean" />
+          <Property Name="TimeInc" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="TimeAmt" Type="Int32" />
+          <Property Name="StartDT" Type="DateTime" Precision="3" />
+          <Property Name="LastActionDT" Type="DateTime" Precision="3" />
+          <Property Name="Sts" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EndSts" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IsOver" Type="Boolean" />
+          <Property Name="OverDT" Type="DateTime" Precision="3" />
+          <Property Name="CreateUserId" Type="Guid" />
+          <Property Name="CreateDT" Type="DateTime" Precision="3" />
+          <Property Name="ChangeUserId" Type="Guid" />
+          <Property Name="ChangeDT" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Idx" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Idx" Type="Int32" Nullable="false" />
+          <Property Name="UserIDText" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserIDTextToLower" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhotoBytes" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IsPhotoApproved" Type="Boolean" />
+          <Property Name="NameFirst" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="NameLast" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Group" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="GroupToLower" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="StartParms_OpFindBy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="StartParms_TimeInc" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="StartParms_TimeAmt" Type="Int32" />
+          <Property Name="StartParms_Rated" Type="Boolean" />
+          <Property Name="StartEmail_Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="StartEmail_NameFirst" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="StartEmail_NameLast" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Search_By" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="SearchText_UserId" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="SearchText_Group" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="SearchText_NameLast" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="SearchText_NameFirst" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Search_RatingMin" Type="Int32" />
+          <Property Name="Search_RatingMax" Type="Int32" />
+          <Property Name="CreateUserId" Type="Guid" />
+          <Property Name="CreateDT" Type="DateTime" Precision="3" />
+          <Property Name="ChangeUserId" Type="Guid" />
+          <Property Name="ChangeDT" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="IsJustRegistered" Type="Boolean" Nullable="false" />
+          <Property Name="IsJustLoggedIn" Type="Boolean" Nullable="false" />
+          <Property Name="IsJustLoggedOut" Type="Boolean" Nullable="false" />
+          <Property Name="EmailUserId" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="ProfileIdx" Type="Int32" />
+          <Property Name="DeviceId" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Msg" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="URLId" Type="Guid" />
+          <Property Name="CreateUserId" Type="Guid" />
+          <Property Name="CreateDT" Type="DateTime" Precision="3" />
+          <Property Name="CreateMod" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="ChangeUserId" Type="Guid" />
+          <Property Name="ChangeDT" Type="DateTime" Precision="3" />
+          <Property Name="ChangeMod" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Url">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="Action" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Route" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="View" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Paypal" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="GameId" Type="Guid" />
+          <Property Name="CreateUserId" Type="Guid" Nullable="false" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangeUserId" Type="Guid" Nullable="false" />
+          <Property Name="ChangeDT" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserGame">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ProfileIdx" />
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="ProfileIdx" Type="Int32" Nullable="false" />
+          <Property Name="GameId" Type="Guid" Nullable="false" />
+          <Property Name="fURLParmId" Type="Guid" />
+          <Property Name="RematchSent" Type="Boolean" Nullable="false" />
+          <Property Name="Sts" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GameName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MyTurn" Type="Boolean" Nullable="false" />
+          <Property Name="PlayingAsWhite" Type="Boolean" />
+          <Property Name="IWon" Type="Boolean" />
+          <Property Name="RatingBefore" Type="Int32" />
+          <Property Name="RatingAfter" Type="Int32" />
+          <Property Name="CreateUserId" Type="Guid" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangeUserId" Type="Guid" Nullable="false" />
+          <Property Name="ChangeDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailAddressToLower" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailConfirmCode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordToLower" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsOnline" Type="Boolean" Nullable="false" />
+          <Property Name="ConnectionId" Type="Guid" />
+          <Property Name="ProfileIdxDefault" Type="Int32" Nullable="false" />
+          <Property Name="MembershipLevel" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MembershipExpiration" Type="DateTime" Precision="3" />
+          <Property Name="Role" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneCarrier" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="Int64" />
+          <Property Name="PhoneConfirmCode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Opts_EmailAlerts" Type="Boolean" Nullable="false" />
+          <Property Name="Opts_PhoneAlerts" Type="Boolean" Nullable="false" />
+          <Property Name="Opts_AudioOn" Type="Boolean" Nullable="false" />
+          <Property Name="Opts_ClockShow" Type="Boolean" Nullable="false" />
+          <Property Name="Opts_PostToFacebook" Type="Boolean" />
+          <Property Name="LastActivityDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserId" Type="Guid" Nullable="false" />
+          <Property Name="ChangeDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangeUserId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Friends" EntityType="Self.Friend" />
+          <EntitySet Name="Games" EntityType="Self.Game" />
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+          <EntitySet Name="Tokens" EntityType="Self.Token" />
+          <EntitySet Name="Urls" EntityType="Self.Url" />
+          <EntitySet Name="UserGames" EntityType="Self.UserGame" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EfModelStoreContainer" CdmEntityContainer="Context">
+          <EntitySetMapping Name="Friends">
+            <EntityTypeMapping TypeName="EfModel.Friend">
+              <MappingFragment StoreEntitySet="Friends">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProfileIdx" ColumnName="ProfileIdx" />
+                <ScalarProperty Name="FriendUserId" ColumnName="FriendUserId" />
+                <ScalarProperty Name="FriendProfileIdx" ColumnName="FriendProfileIdx" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="EfModel.Game">
+              <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RelatedId" ColumnName="RelatedId" />
+                <ScalarProperty Name="PiecePos" ColumnName="PiecePos" />
+                <ScalarProperty Name="Script" ColumnName="Script" />
+                <ScalarProperty Name="Rated" ColumnName="Rated" />
+                <ScalarProperty Name="TimeInc" ColumnName="TimeInc" />
+                <ScalarProperty Name="TimeAmt" ColumnName="TimeAmt" />
+                <ScalarProperty Name="StartDT" ColumnName="StartDT" />
+                <ScalarProperty Name="LastActionDT" ColumnName="LastActionDT" />
+                <ScalarProperty Name="Sts" ColumnName="Sts" />
+                <ScalarProperty Name="EndSts" ColumnName="EndSts" />
+                <ScalarProperty Name="IsOver" ColumnName="IsOver" />
+                <ScalarProperty Name="OverDT" ColumnName="OverDT" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+                <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="EfModel.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Idx" ColumnName="Idx" />
+                <ScalarProperty Name="UserIDText" ColumnName="UserIDText" />
+                <ScalarProperty Name="UserIDTextToLower" ColumnName="UserIDTextToLower" />
+                <ScalarProperty Name="PhotoBytes" ColumnName="PhotoBytes" />
+                <ScalarProperty Name="IsPhotoApproved" ColumnName="IsPhotoApproved" />
+                <ScalarProperty Name="NameFirst" ColumnName="NameFirst" />
+                <ScalarProperty Name="NameLast" ColumnName="NameLast" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="GroupToLower" ColumnName="GroupToLower" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="StartParms_OpFindBy" ColumnName="StartParms_OpFindBy" />
+                <ScalarProperty Name="StartParms_TimeInc" ColumnName="StartParms_TimeInc" />
+                <ScalarProperty Name="StartParms_TimeAmt" ColumnName="StartParms_TimeAmt" />
+                <ScalarProperty Name="StartParms_Rated" ColumnName="StartParms_Rated" />
+                <ScalarProperty Name="StartEmail_Email" ColumnName="StartEmail_Email" />
+                <ScalarProperty Name="StartEmail_NameFirst" ColumnName="StartEmail_NameFirst" />
+                <ScalarProperty Name="StartEmail_NameLast" ColumnName="StartEmail_NameLast" />
+                <ScalarProperty Name="Search_By" ColumnName="Search_By" />
+                <ScalarProperty Name="SearchText_UserId" ColumnName="SearchText_UserId" />
+                <ScalarProperty Name="SearchText_Group" ColumnName="SearchText_Group" />
+                <ScalarProperty Name="SearchText_NameLast" ColumnName="SearchText_NameLast" />
+                <ScalarProperty Name="SearchText_NameFirst" ColumnName="SearchText_NameFirst" />
+                <ScalarProperty Name="Search_RatingMin" ColumnName="Search_RatingMin" />
+                <ScalarProperty Name="Search_RatingMax" ColumnName="Search_RatingMax" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+                <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tokens">
+            <EntityTypeMapping TypeName="EfModel.Token">
+              <MappingFragment StoreEntitySet="Tokens">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="IsJustRegistered" ColumnName="IsJustRegistered" />
+                <ScalarProperty Name="IsJustLoggedIn" ColumnName="IsJustLoggedIn" />
+                <ScalarProperty Name="IsJustLoggedOut" ColumnName="IsJustLoggedOut" />
+                <ScalarProperty Name="EmailUserId" ColumnName="EmailUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProfileIdx" ColumnName="ProfileIdx" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Msg" ColumnName="Msg" />
+                <ScalarProperty Name="URLId" ColumnName="URLId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreateMod" ColumnName="CreateMod" />
+                <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+                <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+                <ScalarProperty Name="ChangeMod" ColumnName="ChangeMod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urls">
+            <EntityTypeMapping TypeName="EfModel.Url">
+              <MappingFragment StoreEntitySet="Urls">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+                <ScalarProperty Name="View" ColumnName="View" />
+                <ScalarProperty Name="Paypal" ColumnName="Paypal" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+                <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGames">
+            <EntityTypeMapping TypeName="EfModel.UserGame">
+              <MappingFragment StoreEntitySet="UserGames">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProfileIdx" ColumnName="ProfileIdx" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="fURLParmId" ColumnName="fURLParmId" />
+                <ScalarProperty Name="RematchSent" ColumnName="RematchSent" />
+                <ScalarProperty Name="Sts" ColumnName="Sts" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="MyTurn" ColumnName="MyTurn" />
+                <ScalarProperty Name="PlayingAsWhite" ColumnName="PlayingAsWhite" />
+                <ScalarProperty Name="IWon" ColumnName="IWon" />
+                <ScalarProperty Name="RatingBefore" ColumnName="RatingBefore" />
+                <ScalarProperty Name="RatingAfter" ColumnName="RatingAfter" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="EfModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="EmailAddressToLower" ColumnName="EmailAddressToLower" />
+                <ScalarProperty Name="EmailConfirmCode" ColumnName="EmailConfirmCode" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordToLower" ColumnName="PasswordToLower" />
+                <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+                <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+                <ScalarProperty Name="ProfileIdxDefault" ColumnName="ProfileIdxDefault" />
+                <ScalarProperty Name="MembershipLevel" ColumnName="MembershipLevel" />
+                <ScalarProperty Name="MembershipExpiration" ColumnName="MembershipExpiration" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="PhoneCarrier" ColumnName="PhoneCarrier" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneConfirmCode" ColumnName="PhoneConfirmCode" />
+                <ScalarProperty Name="Opts_EmailAlerts" ColumnName="Opts_EmailAlerts" />
+                <ScalarProperty Name="Opts_PhoneAlerts" ColumnName="Opts_PhoneAlerts" />
+                <ScalarProperty Name="Opts_AudioOn" ColumnName="Opts_AudioOn" />
+                <ScalarProperty Name="Opts_ClockShow" ColumnName="Opts_ClockShow" />
+                <ScalarProperty Name="Opts_PostToFacebook" ColumnName="Opts_PostToFacebook" />
+                <ScalarProperty Name="LastActivityDT" ColumnName="LastActivityDT" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="ChangeDT" ColumnName="ChangeDT" />
+                <ScalarProperty Name="ChangeUserId" ColumnName="ChangeUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

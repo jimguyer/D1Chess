@@ -1,0 +1,17 @@
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\D0Chess_Srv.dll.config
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\D0Chess_Srv.dll
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\D0Chess_Srv.pdb
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\EntityFramework.dll
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\EntityFramework.SqlServer.dll
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\Newtonsoft.Json.dll
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\System.ValueTuple.dll
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\EntityFramework.xml
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\EntityFramework.SqlServer.xml
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\Newtonsoft.Json.xml
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Repos\D0Chess\D0Chess_Drv\bin\Debug\System.ValueTuple.xml
+C:\Repos\D0Chess\D0Chess_Drv\obj\Debug\D0Chess_Srv.csprojAssemblyReference.cache
+C:\Repos\D0Chess\D0Chess_Drv\obj\Debug\D0Chess_Srv.csproj.CopyComplete
+C:\Repos\D0Chess\D0Chess_Drv\obj\Debug\D0Chess_Srv.dll
+C:\Repos\D0Chess\D0Chess_Drv\obj\Debug\D0Chess_Srv.pdb
