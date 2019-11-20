@@ -8,7 +8,7 @@ namespace D1Chess_Srv.EfMethods
 {
     public class EfCarrier
     {
-        //private readonly Context Context = new Context();
+        private readonly Context Context = new Context();
 
         //public List<Carriers> Gets() { return Context.Carriers.ToList(); }
 

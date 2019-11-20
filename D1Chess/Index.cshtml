@@ -2,7 +2,7 @@
 @model D1Chess.Model
 <!DOCTYPE html>
 
-<html ng-app="NgModule" resize>
+<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Diamond Chess</title>
@@ -107,6 +107,8 @@
 </head>
 <body>
     @using (Html.BeginForm("Index", "View"))
-    {<approot></approot>}
+    {
+        <approot ng-app="NgMod" resize></approot>
+    }
 </body>
 </html>

@@ -245,6 +245,7 @@
     <Content Include="ClientApp\App\Root\Comps\Hdr\Hdr.js" />
     <Content Include="ClientApp\App\Root\Root.html" />
     <Content Include="ClientApp\App\Root\Root.js" />
+    <Content Include="ClientApp\Common\Modules\Web.js" />
     <Content Include="ClientApp\Member\Modules\Paypal.js" />
     <Content Include="ClientApp\Member\Modules\Role.js" />
     <Content Include="ClientApp\Member\Routes\Games\Games.html" />
@@ -328,8 +329,8 @@
     <Compile Include="Model.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClientApp\App\AppModule_Ano" />
-    <Content Include="ClientApp\App\AppModule_Mem" />
+    <Content Include="ClientApp\App\NgMod_Ano" />
+    <Content Include="ClientApp\App\NgMod_Mem" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -343,6 +344,9 @@
       <Project>{36ab8f98-2d3f-4401-a933-1a27ad9b9687}</Project>
       <Name>D1Chess_Srv</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClientApp\Custom\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
